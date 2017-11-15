@@ -1,0 +1,203 @@
+$columns = 24
+$atom = (100% / $columns)
+
+$break_w700 = 700px
+
+$offset = 2%
+$offset_w700 = $offset
+
+$offset_one_side = ($offset / 2)
+$offset_w700_one_side = ($offset_w700 / 2)
+
+$fields = 30px
+$fields_w700 = 15px
+
+wrapper-full()
+  padding-left $fields
+  padding-right $fields
+
+  w700-block(@block{
+    padding-left $fields_w700
+    padding-right $fields_w700
+  })
+
+row-offsets()
+  margin-left ($offset_one_side * -1)
+  margin-right ($offset_one_side * -1)
+
+col-offsets($type)
+  {$type}-left $offset_one_side
+  {$type}-right $offset_one_side
+
+wrapper()
+  max-width 1100px
+  margin 0 auto
+  wrapper-full()
+
+row-flex()
+  display flex
+  flex-wrap wrap
+  row-offsets()
+
+row-float()
+  row-offsets()
+  clearfix()
+
+row-ib()
+  row-offsets()
+
+col()
+  box-sizing border-box
+  word-wrap break-word
+  col-offsets(margin)
+
+col-float()
+  float left
+
+col-ib()
+  display inline-block
+  vertical-align top
+
+col-padding()
+  word-wrap break-word
+  col-offsets(padding)
+
+col-size($n)
+  width $atom * $n - $offset
+
+col-size-w700($n)
+  w700(width, $atom * $n - $offset_w700)
+
+shift($n)
+  margin-left $atom * $n + $offset_one_side
+  margin-right $atom * $n + $offset_one_side
+
+shift-left($n)
+  margin-left $atom * $n + $offset_one_side
+
+shift-right($n)
+  margin-right $atom * $n + $offset_one_side
+
+shift-padding($n)
+  padding-left $atom * $n + $offset_one_side
+  padding-right $atom * $n + $offset_one_side
+
+shift-padding-left($n)
+  padding-left $atom * $n + $offset_one_side
+
+shift-padding-right($n)
+  padding-right $atom * $n + $offset_one_side
+
+shift-w700($n)
+  w700(margin-left, $atom * $n + $offset_w700_one_side)
+  w700(margin-right, $atom * $n + $offset_w700_one_side)
+
+shift-w700-left($n)
+  w700(margin-left, $atom * $n + $offset_w700_one_side)
+
+shift-w700-right($n)
+  w700(margin-right, $atom * $n + $offset_w700_one_side)
+
+shift-w700-padding($n)
+  w700(padding-left, $atom * $n + $offset_w700_one_side)
+  w700(padding-right, $atom * $n + $offset_w700_one_side)
+
+shift-w700-padding-left($n)
+  w700(padding-left, $atom * $n + $offset_w700_one_side)
+
+shift-w700-padding-right($n)
+  w700(padding-right, $atom * $n + $offset_w700_one_side)
+
+w700($name, $value)
+  @media screen and (max-width: $break_w700)
+    {$name} $value
+
+w700-block($content)
+  @media screen and (max-width: $break_w700)
+    {$content}
+
+from($min_width, $content)
+  @media screen and (min-width: $min_width)
+    {$content}
+
+to($max_width, $content)
+  @media screen and (max-width: $max_width)
+    {$content}
+
+from-to($min_width, $max_width, $content)
+  @media screen and (min-width: $min_width) and (max-width: $max_width)
+    {$content}
+
+reset()
+  body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,input,textarea,p,blockquote,th,td
+    margin 0
+    padding 0
+  
+  table
+    border-collapse collapse
+    border-spacing 0
+  
+  fieldset,img,abbr
+    border 0
+  
+  address,caption,cite,code,dfn,em,strong,th,var
+    font-style normal
+    font-weight normal
+  
+  ul li
+    list-style none
+  
+  caption,th
+    text-align left
+  
+  h1,h2,h3,h4,h5,h6
+    font-size 100%
+    font-weight normal
+  
+  sup
+    vertical-align text-top
+  
+  sub
+    vertical-align text-bottom
+  
+  input,textarea,select
+    font-family inherit
+    font-size inherit
+    font-weight inherit
+  
+  legend
+    color #000
+  
+  article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main
+    display block
+  
+  img
+    max-width 100%
+    height auto
+
+debug($background, $outline)
+  height 100vh
+  position fixed
+  width 100%
+  
+  > div
+    height inherit
+    wrapper()
+    
+    > div
+      height inherit
+      row-flex()
+      
+      > div
+        col()
+        col-size(1)
+        height inherit
+        outline $outline
+        background $background
+
+clearfix()
+  &::after
+    display block
+    content ""
+    clear both
+  
