@@ -1,16 +1,8 @@
 module.exports = function(){
   $.gulp.task('watch', function(){
-    $.load.watch('pug/**/*.pug', function(event, cb){
-      $.gulp.series('pug');
-    });
-    $.load.watch('assets/**/*.styl', function(event, cb){
-      $.gulp.series('stylus');
-    });
-    $.load.watch('assets/**/*.js', function(event, cb){
-      $.gulp.series('js');
-    });
-    $.load.watch('../php/*.php', function(event, cb){
-      $.sync.reload();
-    });
+    $.load.watch($.path.watch.pug, $.gulp.series('pug'));
+    $.load.watch($.path.watch.styl, $.gulp.series('stylus'));
+    $.load.watch($.path.watch.js, $.gulp.series('js'));
+    $.load.watch($.path.watch.sprite, $.gulp.series('sprite'));
   });
 };

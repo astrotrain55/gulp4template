@@ -1,1 +1,1 @@
-"C:\Program Files\Git\git-cmd.exe" gulp
+gulp

@@ -22,4 +22,4 @@ var settings = {
   tab: "  "
 };
 
-smartgrid('./bem', settings);
+smartgrid('./assets/', settings);
