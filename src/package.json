@@ -24,7 +24,7 @@
     "gulp.spritesmith": "^6.7.0",
     "imagemin-pngquant": "^5.0.1",
     "nib": "^1.1.2",
-    "smart-grid": "^2.0.0"
+    "smart-grid": "^2.0.1"
   },
   "dependencies": {
     "animate.css": "^3.5.2",

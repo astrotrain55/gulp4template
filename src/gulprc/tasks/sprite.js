@@ -1,13 +1,14 @@
 module.exports = function(){
-  $.gulp.task('cleansprite', function(){
-    return $.del.sync('../images/sprite.png');
+  $.gulp.task('cleansprite', function(done){
+    $.del.sync($.path.sprite.del, {force: true});
+    done();
   });
-  $.gulp.task('spritemade', function(){
+  $.gulp.task('spritemade', function(done){
     var spriteData =
-      $.gulp.src('sprite/*.*')
+      $.gulp.src($.path.watch.sprite)
       .pipe($.spritesmith({
-        imgName: 'sprite.png',
-        cssName: '_sprite.inc.styl',
+        imgName: $.path.name.sprite_png + '.png',
+        cssName: $.path.name.sprite_styl + '.styl',
         padding: 0,
         cssFormat: 'stylus',
         algorithm: 'binary-tree',
@@ -16,8 +17,9 @@ module.exports = function(){
           sprite.name = 's-' + sprite.name;
         }
       }));
-    spriteData.img.pipe($.gulp.dest('../images/')); // путь, куда сохраняем картинку
-    spriteData.css.pipe($.gulp.dest('assets/')); // путь, куда сохраняем стили
+    spriteData.img.pipe($.gulp.dest($.path.sprite.png)); // путь, куда сохраняем картинку
+    spriteData.css.pipe($.gulp.dest($.path.sprite.styl)); // путь, куда сохраняем стили
+    done();
   });
-  $.gulp.task('sprite', ['cleansprite', 'spritemade']);
+  $.gulp.task('sprite', $.gulp.series('cleansprite','spritemade'));
 };

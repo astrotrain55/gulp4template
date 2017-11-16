@@ -3,7 +3,8 @@ module.exports = [
   './gulprc/tasks/js',
   './gulprc/tasks/pug',
   './gulprc/tasks/serve',
-  // './gulprc/tasks/sprite',
+  './gulprc/tasks/sprite',
   './gulprc/tasks/stylus',
-  './gulprc/tasks/watch'
+  './gulprc/tasks/watch',
+  './gulprc/tasks/build'
 ];

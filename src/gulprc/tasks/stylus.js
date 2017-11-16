@@ -1,6 +1,6 @@
 module.exports = function(){
   $.gulp.task('stylus', function(){
-    return $.gulp.src('assets/main.styl')
+    return $.gulp.src($.path.styl.src)
     .pipe($.load.plumber())
     .pipe($.load.sourcemaps.init())
     .pipe($.load.stylus({
@@ -16,13 +16,13 @@ module.exports = function(){
       message: "Error: <%= error.message %>"
     }))
     .pipe($.load.autoprefixer({
-      browsers: ['last 10 versions']
+      browsers: ['last 3 versions']
     }))
     .pipe($.load.sourcemaps.write('.'))
     .pipe($.load.rename({
-      basename: 'template_styles'
+      basename: $.path.name.css
     }))
-    .pipe($.gulp.dest('..'))
+    .pipe($.gulp.dest($.path.styl.dest))
     .pipe($.sync.reload({
       stream: true
     }));
