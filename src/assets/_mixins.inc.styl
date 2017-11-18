@@ -18,3 +18,54 @@ sprite($sprite)
   spriteWidth($sprite)
   spriteHeight($sprite)
   background-repeat no-repeat
+
+// Шрифты
+font-face(font-family, path, $weight = normal, $style = normal, $asset-pipeline = false)
+  @font-face
+    font-family: font-family
+    font-weight: $weight
+    font-style: $style
+    if $asset-pipeline == true
+      src: font-url(path+".eot")
+      src: font-url(path+".eot?#iefix") format("embedded-opentype"), font-url(path+".woff") format("woff"), font-url(path+".ttf") format("truetype")
+    else
+      src: url(path+".eot")
+      src: url(path+".eot?#iefix") format("embedded-opentype"), url(path+".woff") format("woff"), url(path+".ttf") format("truetype")
+
+// Позиция
+absolute-center()
+  position absolute
+  top 50%
+  left 50%
+  transform translate(-50%,-50%)
+
+absolute-all(num)
+  position absolute
+  top num
+  bottom num
+  right num
+  left num
+
+position($position, $top = null, $right = null,  $bottom = null, $left = null)
+  position: $position
+  if $left is a 'unit' or $left == 'auto'
+    left: $left
+  if $right is a 'unit' or $right == 'auto'
+    right: $right
+  if $top is a 'unit' or $top == 'auto'
+    top: $top
+  if $bottom is a 'unit' or $bottom == 'auto'
+    bottom: $bottom
+
+absolute($top = null, $right = null,  $bottom = null, $left = null)
+  position(absolute, $top, $right, $bottom, $left)
+
+fixed($top = null, $right = null,  $bottom = null, $left = null)
+  position(fixed, $top, $right, $bottom, $left)
+
+relative($top = null, $right = null,  $bottom = null, $left = null)
+  position(relative, $top, $right, $bottom, $left)
+
+// px => rem
+rem(size)
+  return (size/16)rem

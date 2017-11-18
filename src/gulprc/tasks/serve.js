@@ -1,6 +1,6 @@
-module.exports = function(){
-  $.gulp.task('serve', function(){
-    $.php7.server({}, function(){
+module.exports = () => {
+  $.gulp.task('serve', () => {
+    $.php7.server({}, () => {
       $.sync.init({
         proxy: $.path.server.proxy,
         // tunnel: 'sozdavatel',
