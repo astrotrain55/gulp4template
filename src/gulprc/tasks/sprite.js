@@ -1,9 +1,9 @@
-module.exports = function(){
-  $.gulp.task('cleansprite', function(done){
+module.exports = () => {
+  $.gulp.task('cleansprite', (done) => {
     $.del.sync($.path.sprite.del, {force: true});
     done();
   });
-  $.gulp.task('spritemade', function(done){
+  $.gulp.task('spritemade', (done) => {
     var spriteData =
       $.gulp.src($.path.watch.sprite)
       .pipe($.spritesmith({
@@ -13,7 +13,7 @@ module.exports = function(){
         cssFormat: 'stylus',
         algorithm: 'binary-tree',
         cssTemplate: 'stylus.template.mustache',
-        cssVarMap: function(sprite){
+        cssVarMap: (sprite) => {
           sprite.name = 's-' + sprite.name;
         }
       }));

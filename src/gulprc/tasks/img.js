@@ -1,5 +1,5 @@
-module.exports = function(){
-  $.gulp.task('img:build', function(){
+module.exports = () => {
+  $.gulp.task('img:build', () => {
     return $.gulp.src($.path.img.src)
       .pipe($.load.cache($.load.imagemin([
         $.load.imagemin.svgo({

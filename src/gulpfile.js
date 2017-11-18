@@ -9,6 +9,7 @@ global.$ = {
 
   del: require('del'),
   nib: require('nib'),
+  ftp: require('vinyl-ftp'),
   sync: require('browser-sync').create(),
   pngquant: require('imagemin-pngquant'),
 
@@ -27,7 +28,7 @@ global.$ = {
     },
     pug: {
       src: 'pug/pages/*.pug',
-      dest: '../php'
+      dest: '../php/'
     },
     php: {
       src: '../php/*.php',
@@ -40,7 +41,7 @@ global.$ = {
     },
     img: {
       src: '../images/**/*',
-      dest: '../dist/images'
+      dest: '../dist/images/'
     },
     fonts: {
       src: '../fonts/**/*.*',
@@ -79,11 +80,11 @@ global.$ = {
   }
 };
 
-$.path.tasks.forEach(function(taskPath){
+$.path.tasks.forEach((taskPath) => {
   require(taskPath)();
 });
 
-$.gulp.task('clear_cache', function(){
+$.gulp.task('clear_cache', () => {
   return $.load.cache.clearAll();
 });
 

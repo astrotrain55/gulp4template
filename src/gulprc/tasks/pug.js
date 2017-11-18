@@ -1,5 +1,5 @@
-module.exports = function(){
-  $.gulp.task('pug', function(){
+module.exports = () => {
+  $.gulp.task('pug', () => {
     return $.gulp.src($.path.pug.src)
     .pipe($.load.plumber())
     .pipe($.load.pug({pretty: true}))
@@ -10,7 +10,7 @@ module.exports = function(){
     .pipe($.load.rename({
       extname: '.php'
     }))
-    .pipe($.inject.prepend('<?php require_once("path.inc.php"); ?>'))
+    .pipe($.inject.prepend('<?php require_once("_path.inc.php"); ?>\n'))
     .pipe($.gulp.dest($.path.pug.dest))
     .on('end', $.sync.reload);
   });

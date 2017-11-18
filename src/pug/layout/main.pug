@@ -1,6 +1,10 @@
+include ../mixins
+block variables
+
 doctype html
 html(lang="ru-RU")
   head
+    title #{title}
     meta(charset="utf-8")
     meta(http-equiv='X-UA-Compatible' content="IE=edge")
     meta(name="viewport" content="width=device-width,initial-scale=1")
@@ -8,32 +12,30 @@ html(lang="ru-RU")
     meta(name="keywords" content="")
     meta(name="author" content="Baryonyx")
     meta(name="copyright" content!='<?=date("Y")?>')
-    - colorPanel = '#808';
     //- Chrome, Firefox OS and Opera
-    meta(name="theme-color" content=colorPanel)
+    meta(name="theme-color" content='#808')
     //- Windows Phone
-    meta(name="msapplication-navbutton-color" content=colorPanel)
+    meta(name="msapplication-navbutton-color" content='#808')
     //- iOS Safari
-    meta(name="apple-mobile-web-app-status-bar-style" content=colorPanel)
+    meta(name="apple-mobile-web-app-status-bar-style" content='#808')
     //- Иконка для соцсетей
-    meta(property="og:image" content!="<?=SITE_TEMPLATE_PATH?>/images/image.jpg")
+    meta(property="og:image" content!="<?=SITE_TEMPLATE_PATH?>/images/Skulltag.png")
     //- Иконка сайта
     link(rel="shortcut icon" href!="<?=SITE_TEMPLATE_PATH?>/images/favicon/favicon.ico" type="image/x-icon")
     link(rel="apple-touch-icon" href!="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-touch-icon.png")
     link(rel="apple-touch-icon" sizes="72x72" href!="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-touch-icon-72x72.png")
     link(rel="apple-touch-icon" sizes="114x114" href!="<?=SITE_TEMPLATE_PATH?>/images/favicon/apple-touch-icon-114x114.png")
     //- Стили
-    link(rel="stylesheet" href!="<?=SITE_TEMPLATE_PATH?>/template_styles.css")
+    link(rel="stylesheet" href!="<?=SITE_TEMPLATE_PATH?>/template_styles.css?v=<?=rand()?>")
     <!--[if lt IE 9]>
     script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js")
     //- Rem-unit-polyfill
     script(src="https://cdnjs.cloudflare.com/ajax/libs/rem/1.3.4/js/rem.min.js")
     <![endif]-->
-    title
-      block title
   body
     include ../modules/debug
     include ../modules/header
     block content
     include ../modules/footer
-    script(src!="<?=SITE_TEMPLATE_PATH?>/scripts.min.js")
+    script(src!="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>")
+    block scripts
