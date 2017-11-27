@@ -1,25 +1,25 @@
 $columns = 24
 $atom = (100% / $columns)
 
-$break_w320 = 320px
-$break_w480 = 480px
-$break_w768 = 768px
-$break_w992 = 992px
 $break_w1200 = 1200px
+$break_w992 = 992px
+$break_w768 = 768px
+$break_w480 = 480px
+$break_w320 = 320px
 
 $offset = 2%
-$offset_w320 = $offset
-$offset_w480 = $offset
-$offset_w768 = $offset
-$offset_w992 = $offset
 $offset_w1200 = $offset
+$offset_w992 = $offset
+$offset_w768 = $offset
+$offset_w480 = $offset
+$offset_w320 = $offset
 
 $offset_one_side = ($offset / 2)
-$offset_w320_one_side = ($offset_w320 / 2)
-$offset_w480_one_side = ($offset_w480 / 2)
-$offset_w768_one_side = ($offset_w768 / 2)
-$offset_w992_one_side = ($offset_w992 / 2)
 $offset_w1200_one_side = ($offset_w1200 / 2)
+$offset_w992_one_side = ($offset_w992 / 2)
+$offset_w768_one_side = ($offset_w768 / 2)
+$offset_w480_one_side = ($offset_w480 / 2)
+$offset_w320_one_side = ($offset_w320 / 2)
 
 $fields = 30px
 $fields_w768 = 15px
@@ -42,7 +42,7 @@ col-offsets($type)
   {$type}-right $offset_one_side
 
 wrapper()
-  max-width 1100px
+  max-width 1140px
   margin 0 auto
   wrapper-full()
 
@@ -77,20 +77,20 @@ col-padding()
 col-size($n)
   width $atom * $n - $offset
 
-col-size-w320($n)
-  w320(width, $atom * $n - $offset_w320)
-
-col-size-w480($n)
-  w480(width, $atom * $n - $offset_w480)
-
-col-size-w768($n)
-  w768(width, $atom * $n - $offset_w768)
+col-size-w1200($n)
+  w1200(width, $atom * $n - $offset_w1200)
 
 col-size-w992($n)
   w992(width, $atom * $n - $offset_w992)
 
-col-size-w1200($n)
-  w1200(width, $atom * $n - $offset_w1200)
+col-size-w768($n)
+  w768(width, $atom * $n - $offset_w768)
+
+col-size-w480($n)
+  w480(width, $atom * $n - $offset_w480)
+
+col-size-w320($n)
+  w320(width, $atom * $n - $offset_w320)
 
 shift($n)
   margin-left $atom * $n + $offset_one_side
@@ -112,65 +112,25 @@ shift-padding-left($n)
 shift-padding-right($n)
   padding-right $atom * $n + $offset_one_side
 
-shift-w320($n)
-  w320(margin-left, $atom * $n + $offset_w320_one_side)
-  w320(margin-right, $atom * $n + $offset_w320_one_side)
+shift-w1200($n)
+  w1200(margin-left, $atom * $n + $offset_w1200_one_side)
+  w1200(margin-right, $atom * $n + $offset_w1200_one_side)
 
-shift-w320-left($n)
-  w320(margin-left, $atom * $n + $offset_w320_one_side)
+shift-w1200-left($n)
+  w1200(margin-left, $atom * $n + $offset_w1200_one_side)
 
-shift-w320-right($n)
-  w320(margin-right, $atom * $n + $offset_w320_one_side)
+shift-w1200-right($n)
+  w1200(margin-right, $atom * $n + $offset_w1200_one_side)
 
-shift-w320-padding($n)
-  w320(padding-left, $atom * $n + $offset_w320_one_side)
-  w320(padding-right, $atom * $n + $offset_w320_one_side)
+shift-w1200-padding($n)
+  w1200(padding-left, $atom * $n + $offset_w1200_one_side)
+  w1200(padding-right, $atom * $n + $offset_w1200_one_side)
 
-shift-w320-padding-left($n)
-  w320(padding-left, $atom * $n + $offset_w320_one_side)
+shift-w1200-padding-left($n)
+  w1200(padding-left, $atom * $n + $offset_w1200_one_side)
 
-shift-w320-padding-right($n)
-  w320(padding-right, $atom * $n + $offset_w320_one_side)
-
-shift-w480($n)
-  w480(margin-left, $atom * $n + $offset_w480_one_side)
-  w480(margin-right, $atom * $n + $offset_w480_one_side)
-
-shift-w480-left($n)
-  w480(margin-left, $atom * $n + $offset_w480_one_side)
-
-shift-w480-right($n)
-  w480(margin-right, $atom * $n + $offset_w480_one_side)
-
-shift-w480-padding($n)
-  w480(padding-left, $atom * $n + $offset_w480_one_side)
-  w480(padding-right, $atom * $n + $offset_w480_one_side)
-
-shift-w480-padding-left($n)
-  w480(padding-left, $atom * $n + $offset_w480_one_side)
-
-shift-w480-padding-right($n)
-  w480(padding-right, $atom * $n + $offset_w480_one_side)
-
-shift-w768($n)
-  w768(margin-left, $atom * $n + $offset_w768_one_side)
-  w768(margin-right, $atom * $n + $offset_w768_one_side)
-
-shift-w768-left($n)
-  w768(margin-left, $atom * $n + $offset_w768_one_side)
-
-shift-w768-right($n)
-  w768(margin-right, $atom * $n + $offset_w768_one_side)
-
-shift-w768-padding($n)
-  w768(padding-left, $atom * $n + $offset_w768_one_side)
-  w768(padding-right, $atom * $n + $offset_w768_one_side)
-
-shift-w768-padding-left($n)
-  w768(padding-left, $atom * $n + $offset_w768_one_side)
-
-shift-w768-padding-right($n)
-  w768(padding-right, $atom * $n + $offset_w768_one_side)
+shift-w1200-padding-right($n)
+  w1200(padding-right, $atom * $n + $offset_w1200_one_side)
 
 shift-w992($n)
   w992(margin-left, $atom * $n + $offset_w992_one_side)
@@ -192,64 +152,104 @@ shift-w992-padding-left($n)
 shift-w992-padding-right($n)
   w992(padding-right, $atom * $n + $offset_w992_one_side)
 
-shift-w1200($n)
-  w1200(margin-left, $atom * $n + $offset_w1200_one_side)
-  w1200(margin-right, $atom * $n + $offset_w1200_one_side)
+shift-w768($n)
+  w768(margin-left, $atom * $n + $offset_w768_one_side)
+  w768(margin-right, $atom * $n + $offset_w768_one_side)
 
-shift-w1200-left($n)
-  w1200(margin-left, $atom * $n + $offset_w1200_one_side)
+shift-w768-left($n)
+  w768(margin-left, $atom * $n + $offset_w768_one_side)
 
-shift-w1200-right($n)
-  w1200(margin-right, $atom * $n + $offset_w1200_one_side)
+shift-w768-right($n)
+  w768(margin-right, $atom * $n + $offset_w768_one_side)
 
-shift-w1200-padding($n)
-  w1200(padding-left, $atom * $n + $offset_w1200_one_side)
-  w1200(padding-right, $atom * $n + $offset_w1200_one_side)
+shift-w768-padding($n)
+  w768(padding-left, $atom * $n + $offset_w768_one_side)
+  w768(padding-right, $atom * $n + $offset_w768_one_side)
 
-shift-w1200-padding-left($n)
-  w1200(padding-left, $atom * $n + $offset_w1200_one_side)
+shift-w768-padding-left($n)
+  w768(padding-left, $atom * $n + $offset_w768_one_side)
 
-shift-w1200-padding-right($n)
-  w1200(padding-right, $atom * $n + $offset_w1200_one_side)
+shift-w768-padding-right($n)
+  w768(padding-right, $atom * $n + $offset_w768_one_side)
 
-w320($name, $value)
-  @media screen and (min-width: $break_w320)
-    {$name} $value
+shift-w480($n)
+  w480(margin-left, $atom * $n + $offset_w480_one_side)
+  w480(margin-right, $atom * $n + $offset_w480_one_side)
 
-w320-block($content)
-  @media screen and (min-width: $break_w320)
-    {$content}
+shift-w480-left($n)
+  w480(margin-left, $atom * $n + $offset_w480_one_side)
 
-w480($name, $value)
-  @media screen and (min-width: $break_w480)
-    {$name} $value
+shift-w480-right($n)
+  w480(margin-right, $atom * $n + $offset_w480_one_side)
 
-w480-block($content)
-  @media screen and (min-width: $break_w480)
-    {$content}
+shift-w480-padding($n)
+  w480(padding-left, $atom * $n + $offset_w480_one_side)
+  w480(padding-right, $atom * $n + $offset_w480_one_side)
 
-w768($name, $value)
-  @media screen and (min-width: $break_w768)
-    {$name} $value
+shift-w480-padding-left($n)
+  w480(padding-left, $atom * $n + $offset_w480_one_side)
 
-w768-block($content)
-  @media screen and (min-width: $break_w768)
-    {$content}
+shift-w480-padding-right($n)
+  w480(padding-right, $atom * $n + $offset_w480_one_side)
 
-w992($name, $value)
-  @media screen and (min-width: $break_w992)
-    {$name} $value
+shift-w320($n)
+  w320(margin-left, $atom * $n + $offset_w320_one_side)
+  w320(margin-right, $atom * $n + $offset_w320_one_side)
 
-w992-block($content)
-  @media screen and (min-width: $break_w992)
-    {$content}
+shift-w320-left($n)
+  w320(margin-left, $atom * $n + $offset_w320_one_side)
+
+shift-w320-right($n)
+  w320(margin-right, $atom * $n + $offset_w320_one_side)
+
+shift-w320-padding($n)
+  w320(padding-left, $atom * $n + $offset_w320_one_side)
+  w320(padding-right, $atom * $n + $offset_w320_one_side)
+
+shift-w320-padding-left($n)
+  w320(padding-left, $atom * $n + $offset_w320_one_side)
+
+shift-w320-padding-right($n)
+  w320(padding-right, $atom * $n + $offset_w320_one_side)
 
 w1200($name, $value)
-  @media screen and (min-width: $break_w1200)
+  @media screen and (max-width: $break_w1200)
     {$name} $value
 
 w1200-block($content)
-  @media screen and (min-width: $break_w1200)
+  @media screen and (max-width: $break_w1200)
+    {$content}
+
+w992($name, $value)
+  @media screen and (max-width: $break_w992)
+    {$name} $value
+
+w992-block($content)
+  @media screen and (max-width: $break_w992)
+    {$content}
+
+w768($name, $value)
+  @media screen and (max-width: $break_w768)
+    {$name} $value
+
+w768-block($content)
+  @media screen and (max-width: $break_w768)
+    {$content}
+
+w480($name, $value)
+  @media screen and (max-width: $break_w480)
+    {$name} $value
+
+w480-block($content)
+  @media screen and (max-width: $break_w480)
+    {$content}
+
+w320($name, $value)
+  @media screen and (max-width: $break_w320)
+    {$name} $value
+
+w320-block($content)
+  @media screen and (max-width: $break_w320)
     {$content}
 
 from($min_width, $content)

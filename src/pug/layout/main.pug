@@ -33,9 +33,9 @@ html(lang="ru-RU")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/rem/1.3.4/js/rem.min.js")
     <![endif]-->
   body
-    include ../modules/debug
     include ../modules/header
     block content
     include ../modules/footer
+    //- include ../modules/debug
     script(src!="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>")
     block scripts
