@@ -1,30 +1,30 @@
 module.exports = () => {
   $.gulp.task('php:build', () => {
-    return $.gulp.src($.path.php.src)
-      .pipe($.gulp.dest($.path.php.build));
+    return $.gulp.src(path.php.src)
+      .pipe($.gulp.dest(path.php.build));
   });
   $.gulp.task('css:build', () => {
-    return $.gulp.src($.path.styl.dest + '/' + $.path.name.css + '.css')
+    return $.gulp.src(path.styl.dest + '/' + path.name.css + '.css')
       .pipe($.load.csso())
-      .pipe($.gulp.dest($.path.styl.build));
+      .pipe($.gulp.dest(path.styl.build));
   });
   $.gulp.task('js:build', () => {
-    return $.gulp.src($.path.js.dest + '/' + $.path.name.js + '.js')
+    return $.gulp.src(path.js.dest + '/' + path.name.js + '.js')
       .pipe($.load.uglifyjs())
-      .pipe($.gulp.dest($.path.js.build));
+      .pipe($.gulp.dest(path.js.build));
   });
   $.gulp.task('fonts:build', () => {
-    return $.gulp.src($.path.fonts.src)
-      .pipe($.gulp.dest($.path.fonts.build));
+    return $.gulp.src(path.fonts.src)
+      .pipe($.gulp.dest(path.fonts.build));
   });
   $.gulp.task('clean:build', (done) => {
-    $.del.sync($.path.build, {force: true});
+    $.del.sync(path.build, {force: true});
     done();
   });
   $.gulp.task('serve:build', () => {
     $.php7.server({}, () => {
       $.sync.init({
-        proxy: $.path.server.build
+        proxy: path.server.build
       });
     });
   });

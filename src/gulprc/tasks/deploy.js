@@ -1,6 +1,6 @@
 module.exports = () => {
   $.gulp.task('deploy:ftp', () => {
-    const globs = [$.path.build + '**/*.*'],
+    const globs = [path.build + '**/*.*'],
           conn  =  $.ftp.create({
             host: 'mywebsite.tld',
             user: 'me',
@@ -11,7 +11,7 @@ module.exports = () => {
         .pipe(conn.dest('/public_html'));
   });
   $.gulp.task('deploy:sftp', () => {
-    return $.gulp.src($.path.build + '**/*.*')
+    return $.gulp.src(path.build + '**/*.*')
       .pipe($.load.sftp({
         host: "mywebsite.tld",
         user: "me",

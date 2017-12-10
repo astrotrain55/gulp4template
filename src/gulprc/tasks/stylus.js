@@ -1,6 +1,6 @@
 module.exports = () => {
   $.gulp.task('stylus', () => {
-    return $.gulp.src($.path.styl.src)
+    return $.gulp.src(path.styl.src)
       .pipe($.load.plumber())
       .pipe($.load.sourcemaps.init())
       .pipe($.load.stylus({
@@ -19,9 +19,9 @@ module.exports = () => {
       }))
       .pipe($.load.sourcemaps.write())
       .pipe($.load.rename({
-        basename: $.path.name.css
+        basename: path.name.css
       }))
-      .pipe($.gulp.dest($.path.styl.dest))
+      .pipe($.gulp.dest(path.styl.dest))
       .pipe($.sync.reload({
         stream: true
       }));

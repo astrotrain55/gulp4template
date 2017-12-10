@@ -1,0 +1,8 @@
+@@include('../node_modules/jquery/dist/jquery.min.js')
+// include('../node_modules/enquire.js/dist/enquire.min.js')
+// include('../node_modules/jquery-validation/dist/jquery.validate.min.js')
+// include('../node_modules/jquery-mask-plugin/dist/jquery.mask.min.js')
+// include('../node_modules/select2/dist/js/select2.min.js')
+// include('../node_modules/magnific-popup/dist/jquery.magnific-popup.min.js')
+// include('../node_modules/slick-carousel/slick/slick.min.js')
+// include('../node_modules/wow.js/dist/wow.min.js')
