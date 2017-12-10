@@ -1,13 +1,15 @@
 include ../mixins
 block variables
 
+include ../_path.inc.php
 doctype html
 html(lang="ru-RU")
   head
     title #{title}
     meta(charset="utf-8")
     meta(http-equiv='X-UA-Compatible' content="IE=edge")
-    meta(name="viewport" content="width=device-width,initial-scale=1")
+    meta(name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no")
+    meta(name="format-detection" content="telephone=no")
     meta(name="description" content="")
     meta(name="keywords" content="")
     meta(name="author" content="Baryonyx")
@@ -37,5 +39,6 @@ html(lang="ru-RU")
     block content
     include ../modules/footer
     //- include ../modules/debug
+    script(src="https://cdn.jsdelivr.net/npm/vue")
     script(src!="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>")
     block scripts

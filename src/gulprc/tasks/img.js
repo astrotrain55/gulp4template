@@ -1,6 +1,6 @@
 module.exports = () => {
   $.gulp.task('img:build', () => {
-    return $.gulp.src($.path.img.src)
+    return $.gulp.src(path.img.src)
       .pipe($.load.cache($.load.imagemin([
         $.load.imagemin.svgo({
           plugins: [{removeViewBox: true}]
@@ -16,6 +16,6 @@ module.exports = () => {
         }),
         $.pngquant()
       ])))
-      .pipe($.gulp.dest($.path.img.dest));
+      .pipe($.gulp.dest(path.img.dest));
   });
 };
