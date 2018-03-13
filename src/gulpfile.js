@@ -27,6 +27,11 @@ $.gulp.task('clear_cache', () => {
   return $.load.cache.clearAll();
 });
 
+$.gulp.task('clean', (done) => {
+  $.del.sync(path.server.base, {force: true});
+  done();
+});
+
 $.gulp.task('default', $.gulp.series(
   $.gulp.parallel('pug', 'stylus', 'js'),
   $.gulp.parallel('serve', 'watch')
