@@ -1,8 +1,7 @@
 global.path = {
   server: {
     base: './php/',
-    proxy: '127.0.0.1/gulp4template/php/',
-    build: 'localhost/gulp4template/dist/php/',
+    proxy: '127.0.0.1/gulp4template/php/'
   },
   watch: {
     js: 'assets/**/*.js',
@@ -16,28 +15,24 @@ global.path = {
     dest: '../php/'
   },
   php: {
-    src: '../php/*.php',
-    build: '../dist/php/'
+    src: '../php/*.php'
   },
   styl: {
     src: 'assets/main.styl',
-    dest: '..',
-    build: '../dist/'
-  },
-  img: {
-    src: '../images/**/*',
-    dest: '../dist/images/'
-  },
-  fonts: {
-    src: '../fonts/**/*.*',
-    build: '../dist/fonts/'
+    dest: '..'
   },
   js: {
     src: ['assets/_libs.inc.js',
           'assets/main.js',
           'assets/bem/**/*.js'],
-    dest: '..',
-    build: '../dist/'
+    dest: '..'
+  },
+  img: {
+    src: '../images/**/*',
+    dest: '../i/'
+  },
+  fonts: {
+    src: '../fonts/**/*.*'
   },
   sprite: {
     del: '../images/sprite.png',
@@ -53,6 +48,5 @@ global.path = {
     css: 'template_styles',
     sprite_png: 'sprite',
     sprite_styl: '_sprite.inc'
-  },
-  build: '../dist/'
+  }
 }

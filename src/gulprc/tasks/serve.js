@@ -4,9 +4,9 @@ module.exports = () => {
       $.sync.init({
         proxy: path.server.proxy,
         // server: {
-        //     baseDir: path.server.base
+        //   baseDir: path.server.base
         // },
-        // tunnel: 'sozdavatel',
+        // tunnel: 'baryonyx',
         // open: 'tunnel'
       });
     });

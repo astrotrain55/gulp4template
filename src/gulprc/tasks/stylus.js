@@ -17,7 +17,8 @@ module.exports = () => {
       .pipe($.load.autoprefixer({
         browsers: ['last 3 versions']
       }))
-      .pipe($.load.sourcemaps.write())
+      .pipe($.load.csso())
+      .pipe($.load.sourcemaps.write('.'))
       .pipe($.load.rename({
         basename: path.name.css
       }))

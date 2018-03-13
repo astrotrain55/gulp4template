@@ -7,6 +7,5 @@ module.exports = [
   './gulprc/tasks/svg',
   './gulprc/tasks/stylus',
   './gulprc/tasks/watch',
-  './gulprc/tasks/build',
   './gulprc/tasks/deploy'
 ];
