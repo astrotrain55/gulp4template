@@ -2,10 +2,10 @@
 
 ### Компоненты:
 * Сборщик **[Gulp](https://gulpjs.com/) 4**
-* Сетка **Smartgrid** ([YouTube](https://www.youtube.com/watch?v=KFVoIzaGPYg&list=PLyeqauxei6je28tJvioIsE0bYnARh0UVz))
 * Шаблонизатор **[Pug](https://pugjs.org/)**
 * Препроцессор **[Stylus](http://stylus-lang.com/)**
   * Библиотека миксинов **[nib](http://stylus.github.io/nib/)**
+  * Сетка **Smartgrid** ([YouTube](https://www.youtube.com/watch?v=KFVoIzaGPYg&list=PLyeqauxei6je28tJvioIsE0bYnARh0UVz))
 * Компилятор **[Babel](https://babeljs.io/)**
 
 ### Установка и запуск:
