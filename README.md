@@ -1,8 +1,22 @@
-# gulp4template
+## Стартовый шаблон
 
-1. git clone https://github.com/astrotrain55/gulp4template.git
-2. cd gulp4template/src
-3. npm rm gulp gulp-cli -g
-4. npm i gulpjs/gulp-cli -g
-5. npm i
-6. gulp
+### Компоненты:
+* Сборщик **[Gulp](https://gulpjs.com/) 4**
+* Сетка **Smartgrid** ([YouTube](https://www.youtube.com/watch?v=KFVoIzaGPYg&list=PLyeqauxei6je28tJvioIsE0bYnARh0UVz))
+* Шаблонизатор **[Pug](https://pugjs.org/)**
+* Препроцессор **[Stylus](http://stylus-lang.com/)**
+  * Библиотека миксинов **[nib](http://stylus.github.io/nib/)**
+* Компилятор **[Babel](https://babeljs.io/)**
+
+### Установка и запуск:
+* Клонирование дистрибутива:
+```git clone https://github.com/astrotrain55/gulp4template.git```
+* ```cd gulp4template/src```
+* Если установлен Gulp 3, удаляем:
+```npm rm gulp gulp-cli -g```
+* Установка Gulp 4:
+```npm i gulpjs/gulp-cli -g```
+* Установка зависимостей:
+```npm i```
+* Запуск:
+```gulp```
