@@ -1,4 +1,6 @@
 src/node_modules
-dist
+php/
 template_styles.css
+template_styles.css.map
 scripts.min.js
+scripts.min.js.map
