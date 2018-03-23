@@ -1,13 +1,13 @@
 var smartgrid = require('smart-grid');
 
 var settings = {
+  mobileFirst: false,
   filename: "_smartgrid.inc",
   outputStyle: 'styl',
   columns: 24,
   offset: '2%',
-  mobileFirst: false,
   container: {
-    maxWidth: '1140px',
+    maxWidth: '1600px',
     fields: '30px' /* side fields */
   },
   breakPoints: {
