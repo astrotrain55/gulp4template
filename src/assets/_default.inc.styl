@@ -1,8 +1,7 @@
 reset()
 
-html, body
+html, body, .wrapper
   height 100% // `Always on the bottom` Footer
-  width 100% // `Always on the bottom` Footer
 
 html
   font-size 62.5% // 10px
@@ -12,12 +11,7 @@ body
   font-size 1.6rem // 16px
   min-width 32rem
   line-height 1.2
-  overflow hidden // `Always on the bottom` Footer
-  display table // `Always on the bottom` Footer
-
-footer
-  display table-row // `Always on the bottom` Footer
-  height 0 // `Always on the bottom` Footer
+  overflow-x hidden
 
 a
   text-decoration none
@@ -30,15 +24,10 @@ img
 textarea
   resize none
 
-[hidden]
-  display none // hack for ie
-
-::selection
-  background mainColor
-  text-shadow none
-
 .wrapper
   wrapper()
+  display: flex; // `Always on the bottom` Footer
+  flex-direction: column; // `Always on the bottom` Footer
 
 .container
-  height 100% // `Always on the bottom` Footer
+  flex-grow 1 // `Always on the bottom` Footer

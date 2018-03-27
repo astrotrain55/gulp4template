@@ -8,7 +8,8 @@ global.path = {
     pug: 'pug/**/*.*',
     styl: 'assets/**/*.styl',
     svg: 'svg/**/*.svg',
-    sprite: 'sprite/**/*.*'
+    sprite: 'sprite/**/*.*',
+    content: 'data/**/*.json'
   },
   pug: {
     src: 'pug/pages/*.pug',
