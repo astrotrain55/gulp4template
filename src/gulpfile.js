@@ -16,6 +16,7 @@ global.$ = {
   sync: require('browser-sync').create(),
   pngquant: require('imagemin-pngquant'),
 
+  fs: require('fs'),
   tasks: require('./gulprc/tasks.js')
 };
 

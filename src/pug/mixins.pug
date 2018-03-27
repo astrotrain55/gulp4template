@@ -1,0 +1,11 @@
+mixin menuTop(name, link)
+  ul
+    li
+      a(href=link) #{name}
+    li
+      a(href=link) #{name}
+
+mixin youtube(video)
+  .relation
+    .relation__ratio
+    .relation__content.youtube(id=video)
