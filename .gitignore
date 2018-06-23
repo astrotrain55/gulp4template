@@ -1,6 +1,13 @@
 src/node_modules
+src/package-lock.json
 php/
 template_styles.css
 template_styles.css.map
 scripts.min.js
 scripts.min.js.map
+vendor.min.css
+vendor.min.css.map
+vendor.min.js
+vendor.min.js.map
+ie.css
+ie.css.map

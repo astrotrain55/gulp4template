@@ -1,10 +1,14 @@
+"use strict";
+
 require('./gulprc/paths.js');
 
 global.$ = {
+  fs: require('fs'),
+  tasks: require('./gulprc/tasks.js'),
+
   gulp: require('gulp'),
   load: require('gulp-load-plugins')(),
 
-  php7: require('gulp-connect-php7'),
   gcmq: require('gulp-group-css-media-queries'),
   include: require('gulp-file-include'),
   spritesmith: require("gulp.spritesmith"),
@@ -12,12 +16,7 @@ global.$ = {
 
   del: require('del'),
   nib: require('nib'),
-  ftp: require('vinyl-ftp'),
-  sync: require('browser-sync').create(),
-  pngquant: require('imagemin-pngquant'),
-
-  fs: require('fs'),
-  tasks: require('./gulprc/tasks.js')
+  sync: require('browser-sync').create()
 };
 
 $.tasks.forEach((taskPath) => {
@@ -28,12 +27,8 @@ $.gulp.task('clear_cache', () => {
   return $.load.cache.clearAll();
 });
 
-$.gulp.task('clean', (done) => {
-  $.del.sync(path.server.base, {force: true});
-  done();
-});
-
 $.gulp.task('default', $.gulp.series(
+  $.gulp.parallel('vendorCSS', 'vendorJS'),
   $.gulp.parallel('pug', 'stylus', 'js'),
-  $.gulp.parallel('serve', 'watch')
+  $.gulp.parallel('serve', 'watch', 'ie')
 ));

@@ -1,6 +1,8 @@
 reset()
 
-html, body, .wrapper
+html,
+body,
+.page
   height 100% // `Always on the bottom` Footer
 
 html
@@ -12,6 +14,8 @@ body
   min-width 32rem
   line-height 1.2
   overflow-x hidden
+  &.popup-open
+    overflow hidden
 
 a
   text-decoration none
@@ -24,10 +28,25 @@ img
 textarea
   resize none
 
-.wrapper
-  wrapper()
-  display: flex; // `Always on the bottom` Footer
-  flex-direction: column; // `Always on the bottom` Footer
+.page
+  display flex // `Always on the bottom` Footer
+  flex-direction column // `Always on the bottom` Footer
 
 .container
   flex-grow 1 // `Always on the bottom` Footer
+
+.wrapper
+  wrapper()
+  height 100%
+  position relative
+
+.full
+  @extend .wrapper
+  max-width 192rem
+
+.no-event
+  pointer-events none
+  opacity .7
+
+.tmp
+  margin-top 7rem
