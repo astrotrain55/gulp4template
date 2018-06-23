@@ -1,9 +1,11 @@
 .relation
   position relative
-  max-width 90rem
   &__ratio
-    padding-top 56.25% /* для разрешения 16:9 */
     height 0
+    &--16-9
+      padding-top 56.25%
+    &--1-1
+      padding-top 100%
   &__content
     position absolute
     width 100%

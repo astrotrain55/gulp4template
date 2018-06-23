@@ -1,8 +1,11 @@
-extends ../layout/main
+extends ../layout/header
 
 append variables
-  - var main = true
-  - var title = 'Главная страница'
+  - var title = 'Главная страница';
+  - var main = true;
+
+block banner
+  include ../../assets/bem/banner/banner
 
 block content
-  
+  main.content

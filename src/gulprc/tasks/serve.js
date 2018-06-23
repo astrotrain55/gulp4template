@@ -1,14 +1,9 @@
 module.exports = () => {
   $.gulp.task('serve', () => {
-    $.php7.server({}, () => {
-      $.sync.init({
-        proxy: path.server.proxy,
-        // server: {
-        //   baseDir: path.server.base
-        // },
-        // tunnel: 'baryonyx',
-        // open: 'tunnel'
-      });
+    $.sync.init({
+      // tunnel: 'gulp4template',
+      // open: 'tunnel',
+      proxy: path.server.proxy
     });
   });
 };

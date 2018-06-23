@@ -1,10 +1,13 @@
 module.exports = () => {
   $.gulp.task('watch', () => {
-    $.load.watch(path.watch.pug, $.gulp.series('pug'));
-    $.load.watch(path.watch.content, $.gulp.series('pug'));
-    $.load.watch(path.watch.styl, $.gulp.series('stylus'));
-    $.load.watch(path.watch.js, $.gulp.series('js'));
-    $.load.watch(path.watch.sprite, $.gulp.series('sprite'));
-    $.load.watch(path.watch.svg, $.gulp.series('svg'));
+    $.gulp.watch(path.watch.pug, $.gulp.series('pug'));
+    $.gulp.watch(path.watch.content, $.gulp.series('pug'));
+    $.gulp.watch(path.watch.styl, $.gulp.series('stylus'));
+    $.gulp.watch(path.watch.js, $.gulp.series('js'));
+    $.gulp.watch(path.watch.vendorJS, $.gulp.series('vendorJS'));
+    $.gulp.watch(path.watch.vendorCSS, $.gulp.series('vendorCSS'));
+    $.gulp.watch(path.watch.ie, $.gulp.series('ie'));
+    $.gulp.watch(path.watch.sprite, $.gulp.series('sprite'));
+    $.gulp.watch(path.watch.svg, $.gulp.series('svg'));
   });
 };
