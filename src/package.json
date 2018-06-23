@@ -6,6 +6,7 @@
   "license": "ISC",
   "description": "Стартовый шаблон для вёрстки",
   "scripts": {
+    "install": "npm i -g gulp-cli rimraf && npm i",
     "start": "gulp",
     "cache": "gulp clear_cache",
     "smartgrid": "node smartgrid.settings.js",

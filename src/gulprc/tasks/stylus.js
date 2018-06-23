@@ -1,4 +1,5 @@
 module.exports = () => {
+
   $.gulp.task('stylus', () => {
     return $.gulp.src(path.styl.src)
       .pipe($.load.plumber())
@@ -58,7 +59,7 @@ module.exports = () => {
       .pipe($.gcmq())
       .pipe($.load.csscomb())
       .on("error", $.load.notify.onError({
-        title: 'Stylus',
+        title: 'IE',
         message: "Error: <%= error.message %>"
       }))
       .pipe($.load.autoprefixer({
@@ -71,4 +72,5 @@ module.exports = () => {
         stream: true
       }));
   });
+
 };

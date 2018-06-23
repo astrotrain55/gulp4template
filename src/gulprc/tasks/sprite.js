@@ -1,8 +1,10 @@
 module.exports = () => {
+
   $.gulp.task('cleansprite', (done) => {
     $.del.sync(path.sprite.del, {force: true});
     done();
   });
+
   $.gulp.task('spritemade', (done) => {
     var spriteData =
       $.gulp.src(path.watch.sprite)
@@ -21,5 +23,7 @@ module.exports = () => {
     spriteData.css.pipe($.gulp.dest(path.sprite.styl)); // путь, куда сохраняем стили
     done();
   });
+
   $.gulp.task('sprite', $.gulp.series('cleansprite','spritemade'));
+
 };

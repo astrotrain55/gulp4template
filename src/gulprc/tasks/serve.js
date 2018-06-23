@@ -1,4 +1,5 @@
 module.exports = () => {
+
   $.gulp.task('serve', () => {
     $.sync.init({
       // tunnel: 'gulp4template',
@@ -6,4 +7,5 @@ module.exports = () => {
       proxy: path.server.proxy
     });
   });
+
 };

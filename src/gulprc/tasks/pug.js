@@ -1,4 +1,5 @@
 module.exports = () => {
+
   $.gulp.task('pug', () => {
     return $.gulp.src(path.pug.src)
       .pipe($.load.plumber())
@@ -19,4 +20,5 @@ module.exports = () => {
       .pipe($.gulp.dest(path.pug.dest))
       .on('end', $.sync.reload);
   });
+
 };

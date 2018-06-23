@@ -1,4 +1,5 @@
 module.exports = () => {
+
   $.gulp.task('js', () => {
     return $.gulp.src(path.js.src)
       .pipe($.load.sourcemaps.init())
@@ -13,6 +14,7 @@ module.exports = () => {
         stream: true
     }));
   });
+
   $.gulp.task('vendorJS', () => {
     return $.gulp.src(path.js.vendorJS)
       .pipe($.include())
@@ -24,4 +26,5 @@ module.exports = () => {
         stream: true
     }));
   });
+
 };

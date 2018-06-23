@@ -1,4 +1,5 @@
 module.exports = () => {
+
   $.gulp.task('svg', () => {
     return $.gulp.src(path.svg.src)
       .pipe($.load.plumber())
@@ -14,4 +15,5 @@ module.exports = () => {
       }))
       .pipe($.gulp.dest(path.svg.dest));
   });
+
 };
