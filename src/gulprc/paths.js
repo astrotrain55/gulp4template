@@ -5,16 +5,16 @@ global.path = {
   watch: {
     pug: [
       'pug/**/*.pug',
-      'assets/bem/**/*.pug'
+      'assets/bem/**/*.pug',
+      'data/**/*.json'
     ],
     styl: ['assets/**/*.styl',
           '!assets/+(libs|ie).styl'],
-    ie: 'assets/ie.styl',
     js: ['assets/main.js',
           'assets/bem/**/*.js'],
     vendorJS: 'assets/libs.js',
     vendorCSS: 'assets/libs.styl',
-    content: 'data/**/*.json',
+    ie: 'assets/ie.styl',
     svg: 'svg/**/*.svg',
     sprite: 'sprite/**/*.*'
   },
