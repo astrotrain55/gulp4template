@@ -1,3 +1,6 @@
+let nib = require('nib'),
+    gcmq = require('gulp-group-css-media-queries');
+
 module.exports = () => {
 
   $.gulp.task('stylus', () => {
@@ -6,9 +9,9 @@ module.exports = () => {
       .pipe($.load.sourcemaps.init())
       .pipe($.load.stylus({
         import: ['nib'],
-        use: $.nib()
+        use: nib()
       }))
-      .pipe($.gcmq())
+      .pipe(gcmq())
       .pipe($.load.csscomb())
       .on("error", $.load.notify.onError({
         title: 'Stylus',
@@ -28,8 +31,8 @@ module.exports = () => {
       }));
   });
 
-  $.gulp.task('vendorCSS', () => {
-    return $.gulp.src(path.styl.vendorCSS)
+  $.gulp.task('vendor', () => {
+    return $.gulp.src(path.styl.vendor)
       .pipe($.load.plumber())
       .pipe($.load.stylus({
         'include css': true
@@ -54,9 +57,9 @@ module.exports = () => {
       .pipe($.load.stylus({
         'include css': true,
         import: ['nib'],
-        use: $.nib()
+        use: nib()
       }))
-      .pipe($.gcmq())
+      .pipe(gcmq())
       .pipe($.load.csscomb())
       .on("error", $.load.notify.onError({
         title: 'IE',

@@ -1,3 +1,5 @@
+let svg = require('gulp-svg-sprites');
+
 module.exports = () => {
 
   $.gulp.task('svg', () => {
@@ -7,7 +9,7 @@ module.exports = () => {
         title: 'svg',
         message: "Error: <%= error.message %>"
       }))
-      .pipe($.svg({
+      .pipe(svg({
         preview: {
           symbols: 'svg.html'
         },

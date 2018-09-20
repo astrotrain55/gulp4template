@@ -1,14 +1,17 @@
+let spritesmith = require('gulp.spritesmith'),
+    del = require('del');
+
 module.exports = () => {
 
   $.gulp.task('cleansprite', (done) => {
-    $.del.sync(path.sprite.del, {force: true});
+    del.sync(path.sprite.del, {force: true});
     done();
   });
 
   $.gulp.task('spritemade', (done) => {
     var spriteData =
       $.gulp.src(path.watch.sprite)
-      .pipe($.spritesmith({
+      .pipe(spritesmith({
         imgName: path.name.sprite_png + '.png',
         cssName: path.name.sprite_styl + '.styl',
         padding: 0,

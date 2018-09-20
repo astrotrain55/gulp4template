@@ -6,7 +6,9 @@
 * Препроцессор **[Stylus](http://stylus-lang.com/)**
   * Библиотека миксинов **[nib](http://stylus.github.io/nib/)**
   * Сетка **Smartgrid** ([YouTube](https://www.youtube.com/watch?v=KFVoIzaGPYg&list=PLyeqauxei6je28tJvioIsE0bYnARh0UVz))
-* Компилятор **[Babel](https://babeljs.io/)**
+* Сборщик модулей **[Webpack](https://webpack.js.org/)**
+  * Транспайлер **[Babel](https://babeljs.io/)**
+  * Шаблонизатор **[{{ mustache }}](http://mustache.github.io/)**
 
 ### Установка и запуск:
 * Клонирование дистрибутива:

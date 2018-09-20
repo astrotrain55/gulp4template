@@ -1,25 +1,44 @@
+let stream = require('webpack-stream'),
+    webpack = require('webpack');
+
 module.exports = () => {
 
   $.gulp.task('js', () => {
     return $.gulp.src(path.js.src)
-      .pipe($.load.sourcemaps.init())
-      .pipe($.load.babel({
-        "presets": ["env"],
-        "minified": true
-      }))
-      .pipe($.load.concat(path.name.js + '.js'))
-      .pipe($.load.sourcemaps.write('.'))
-      .pipe($.gulp.dest(path.js.dest))
-      .pipe($.sync.reload({
-        stream: true
-    }));
-  });
+      .pipe(stream({
+        output: {
+          filename: 'scripts.min.js',
+        },
 
-  $.gulp.task('vendorJS', () => {
-    return $.gulp.src(path.js.vendorJS)
-      .pipe($.include())
-      .pipe($.load.rename({
-        basename: path.name.vendor
+        mode: 'development',
+
+        devtool: 'inline-source-map',
+
+        module: {
+          rules: [
+            {
+              test: /\.js$/,
+              loader: 'babel-loader',
+              exclude: /(node_modules|vendor)/,
+              query: {
+                presets: ['env']
+              }
+            }
+          ]
+        },
+
+        externals: {
+          jquery: 'jQuery'
+        },
+
+        plugins: [
+          new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            Mustache: 'mustache'
+          })
+        ]
+
       }))
       .pipe($.gulp.dest(path.js.dest))
       .pipe($.sync.reload({

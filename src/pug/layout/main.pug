@@ -44,11 +44,11 @@ html(lang="ru-RU")
     //- hack for ie
     link(rel="stylesheet" href!="<?=SITE_TEMPLATE_PATH?>/ie.css")
     //- The HTML5 Shiv
-    script(src!="<?=SITE_TEMPLATE_PATH?>/js/html5shiv.min.js")
+    script(src!="<?=SITE_TEMPLATE_PATH?>/vendor/ie/html5shiv.min.js")
     //- A fast & lightweight polyfill for min/max-width CSS3 Media Queries (for IE 6-8, and more)
-    script(src!="<?=SITE_TEMPLATE_PATH?>/js/respond.min.js")
+    script(src!="<?=SITE_TEMPLATE_PATH?>/vendor/ie/respond.min.js")
     //- REM unit polyfill
-    script(src!="<?=SITE_TEMPLATE_PATH?>/js/rem.min.js")
+    script(src!="<?=SITE_TEMPLATE_PATH?>/vendor/ie/rem.min.js")
     <![endif]-->
   body
     //- include ../debugl
@@ -57,7 +57,7 @@ html(lang="ru-RU")
         block container
       include ../../assets/bem/footer/footer
     include ../../assets/bem/templates/templates
-    <?php require_once("../_pageWidget.inc.php"); ?>
-    script(src!="<?=SITE_TEMPLATE_PATH?>/vendor.min.js?v=<?=rand()?>")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
     script(src!="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>")
     block scripts
+    <?php require_once("../_pageWidget.inc.php"); ?>
