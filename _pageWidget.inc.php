@@ -1,5 +1,5 @@
 <style>
-  .Widget__wrap {
+  .WidgetWrap {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,7 +10,7 @@
     transition: all .3s ease;
     transform: translate(-100%,0);
   }
-  .Widget__wrap:after {
+  .WidgetWrap:after {
     content: " ";
     position: absolute;
     top: 0;
@@ -22,39 +22,58 @@
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
-}
-  .Widget__wrap:hover {
+  }
+  .WidgetWrap:hover {
     transform: translate(0,0);
   }
-  .Widget__item {
+  .WidgetWrap li {
     padding: 0 0 10px;
   }
-  .Widget__link {
+  .WidgetWrap a {
     color: #fff;
     text-decoration: none;
     font-size: 15px;
   }
-  .Widget__link:hover {
+  .WidgetWrap a:hover {
     text-decoration: underline;
   }
 </style>
 
-<div class="Widget__wrap">
-  <ul class="Widget__list"></ul>
+<div class="js-Widget-template" type="text/x-mustache-template" hidden>
+  <div class="WidgetWrap">
+    <ul>
+      {{#.}}
+      <li>
+        <a href="{{link}}">{{number}}. {{name}}</a>
+      </li>
+      {{/.}}
+    </ul>
+  </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.min.js"></script>
 <script>
-  function Widget(){
-    var pages = ['index','02'];
-    this.run = function(){
-      for (var i = 0; i < pages.length; i++) {
-        $('<li class="Widget__item"><a class="Widget__link" href="' + pages[i] + '.php' + '">' + pages[i] + '</a></li>').appendTo('.Widget__list');
-      }
-    }
-  }
-
   window.onload = function(){
-    var pageWidget = new Widget();
-    pageWidget.run();
+    $.getJSON('../src/data/menu.json', function(data){
+
+      var a = [], c = 0;
+      for (var k in data.top) {
+        var o = {};
+        o.name = k;
+        o.link = data.top[k];
+        o.number = ("0" + ++c).slice(-2)
+        a.push(o);
+      }
+
+      a.push({
+        name: "Тестовая страница",
+        link: "tmp.php",
+        number: "99"
+      });
+
+      var e = $(".js-Widget-template").html();
+      var m = Mustache.render(e, a);
+      $('body').append(m);
+    });
   }
 </script>
