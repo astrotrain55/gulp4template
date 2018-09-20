@@ -11,3 +11,4 @@ vendor.min.js
 vendor.min.js.map
 ie.css
 ie.css.map
+*.diff
