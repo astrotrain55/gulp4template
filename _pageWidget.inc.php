@@ -39,12 +39,12 @@
   }
 </style>
 
-<div class="js-Widget-template" type="text/x-mustache-template" hidden>
+<div class="jsWidgetTemplate" type="text/x-mustache-template" hidden>
   <div class="WidgetWrap">
     <ul>
       {{#.}}
       <li>
-        <a href="{{link}}">{{number}}. {{name}}</a>
+        <a href="{{link}}">{{number}}. {{title}}</a>
       </li>
       {{/.}}
     </ul>
@@ -52,27 +52,12 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
   window.onload = function(){
     $.getJSON('../src/data/menu.json', function(data){
-
-      var a = [], c = 0;
-      for (var k in data.top) {
-        var o = {};
-        o.name = k;
-        o.link = data.top[k];
-        o.number = ("0" + ++c).slice(-2)
-        a.push(o);
-      }
-
-      a.push({
-        name: "Тестовая страница",
-        link: "tmp.php",
-        number: "99"
-      });
-
-      var e = $(".js-Widget-template").html();
-      var m = Mustache.render(e, a);
+      var e = $(".jsWidgetTemplate").html();
+      var m = Mustache.render(e, data.widget);
       $('body').append(m);
     });
   }

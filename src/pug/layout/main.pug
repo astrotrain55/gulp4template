@@ -57,7 +57,7 @@ html(lang="ru-RU")
         block container
       include ../../assets/bem/footer/footer
     include ../../assets/bem/templates/templates
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src!="<?=SITE_TEMPLATE_PATH?>/vendor.min.js?v=<?=rand()?>")
     script(src!="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>")
     block scripts
     <?php require_once("../_pageWidget.inc.php"); ?>
