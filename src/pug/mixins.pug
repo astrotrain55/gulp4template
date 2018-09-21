@@ -3,6 +3,6 @@ mixin menuTop(name, link)
     a(href=link) #{name}
 
 mixin youtube(video)
-  .relation
-    .relation__ratio
-    .relation__content.youtube(id=video)
+  .youtube
+    .youtube__ratio
+    .youtube__iframe.js-youtube(data-id=video)

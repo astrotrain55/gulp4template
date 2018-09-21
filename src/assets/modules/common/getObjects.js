@@ -1,6 +1,6 @@
 // Копия массива
 export function arrCopy(arr) {
-  var arrCopy = arr.map(function(el) {
+  let arrCopy = arr.map(function(el) {
     return el;
   });
   return arrCopy;
@@ -8,8 +8,8 @@ export function arrCopy(arr) {
 
 // Копия объекта
 export function objCopy(obj) {
-  var objCopy = {};
-  for (var key in obj) {
+  let objCopy = {};
+  for (let key in obj) {
     objCopy[key] = obj[key];
   }
   return objCopy;
@@ -17,8 +17,8 @@ export function objCopy(obj) {
 
 // Количество элементов объекта
 export function objCount(obj) {
-  var counter = 0;
-  for (var key in obj) {
+  let counter = 0;
+  for (let key in obj) {
     counter++;
   }
   return counter;

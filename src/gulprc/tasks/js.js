@@ -7,12 +7,28 @@ module.exports = () => {
     return $.gulp.src(path.js.src)
       .pipe(stream({
         output: {
-          filename: 'scripts.min.js',
+          chunkFilename: 'scripts.min.js',
+          filename: '[name].min.js'
+        },
+
+        optimization: {
+          runtimeChunk: {
+            name: 'vendor'
+          },
+          splitChunks: {
+            cacheGroups: {
+              commons: {
+                name: 'vendor',
+                chunks: 'all',
+                test: /node_modules/
+              }
+            }
+          }
         },
 
         mode: 'development',
 
-        devtool: 'inline-source-map',
+        devtool: 'source-map',
 
         module: {
           rules: [
@@ -27,9 +43,9 @@ module.exports = () => {
           ]
         },
 
-        externals: {
-          jquery: 'jQuery'
-        },
+        // externals: {
+        //   jquery: 'jQuery'
+        // },
 
         plugins: [
           new webpack.ProvidePlugin({
@@ -39,7 +55,7 @@ module.exports = () => {
           })
         ]
 
-      }))
+      }, webpack))
       .pipe($.gulp.dest(path.js.dest))
       .pipe($.sync.reload({
         stream: true
