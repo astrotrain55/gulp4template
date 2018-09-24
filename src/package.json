@@ -10,14 +10,15 @@
     "go": "gulp",
     "clear": "gulp clear_cache",
     "grid": "node smartgrid.settings.js",
-    "delete": "rimraf node_modules"
+    "delete": "rimraf ./node_modules"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.2",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.24.7",
     "del": "^3.0.0",
+    "expose-loader": "^0.7.5",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-csscomb": "^3.0.8",
@@ -52,6 +53,7 @@
     "particles.js": "^2.0.0",
     "select2": "^4.0.6-rc.1",
     "slick-carousel": "^1.8.1",
+    "whatwg-fetch": "^3.0.0",
     "wowjs": "^1.1.3"
   }
 }

@@ -29,8 +29,9 @@ global.path = {
   styl: {
     src: 'assets/main.styl',
     vendor: 'assets/libs.styl',
+    dest: '..',
     ie: 'assets/ie.styl',
-    dest: '..'
+    destIE: '../ie/'
   },
 
   js: {
