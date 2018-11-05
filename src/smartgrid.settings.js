@@ -35,4 +35,4 @@ var settings = {
   tab: "  "
 };
 
-smartgrid('./assets/', settings);
+smartgrid('./assets', settings);

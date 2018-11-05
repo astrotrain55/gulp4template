@@ -2,6 +2,12 @@ mixin menuTop(name, link)
   li
     a(href=link) #{name}
 
+mixin svg(name, bem)
+  - bem = bem || '';
+  svg.icon(class="icon-" + name + ' ' + bem)
+    use(xlink:href="#" + name)
+      //- ../images/svg/symbols.svg
+
 mixin youtube(video)
   .youtube
     .youtube__ratio

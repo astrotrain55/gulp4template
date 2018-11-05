@@ -49,5 +49,15 @@ textarea
   cursor no-drop
   opacity .5
 
-.tmp
-  margin-top 7rem
+.no-scroll
+  overflow -moz-scrollbars-none
+  &::-webkit-scrollbar
+    width 0
+
+.hidden
+  opacity 0
+  visibility hidden
+
+#svg-sprite
+  position absolute
+  size(0)

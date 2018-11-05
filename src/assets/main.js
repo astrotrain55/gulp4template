@@ -2,6 +2,7 @@ import { separationRanks } from './modules/common/separationRanks.js';
 import { smoothScroll } from './modules/common/smoothScroll.js';
 import { detect as ie } from './modules/common/detectIE.js';
 import {fetch as fetchPolyfill} from 'whatwg-fetch';
+import './modules/youtube.js';
 
 $('[href="#"]').on('click', function(e){
   e.preventDefault();

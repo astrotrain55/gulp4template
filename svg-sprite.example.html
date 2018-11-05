@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.min.js" defer></script>
+		<title>SVG &lt;symbol&gt; sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as inline SVG, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-lnr-map-marker-dims { width: 20px; height: 20px; }
+	.svg-lnr-phone-handset-dims { width: 20px; height: 20px; }
+	.icon-box svg {fill: currentColor;stroke: currentColor;}</style>
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+	
+<!--
+	
+Inline <symbol> SVG sprite
+====================================================================================================
+This is an inlined version of the generated SVG sprite. The single images may be <use>d everywhere
+below within this document. Please see
+
+	https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#defs--symbol-mode
+
+for further details on how to create this embeddable sprite variant.
+
+-->
+
+<svg width="0" height="0" style="position:absolute">
+		<symbol viewBox="0 0 20 20" id="lnr-map-marker" xmlns="http://www.w3.org/2000/svg"><path d="M10 20a.5.5 0 0 1-.393-.191c-.057-.073-1.418-1.814-2.797-4.385-.812-1.513-1.46-2.999-1.925-4.416C4.298 9.221 4.001 7.536 4.001 6c0-3.308 2.692-6 6-6s6 2.692 6 6c0 1.536-.298 3.22-.884 5.008-.465 1.417-1.113 2.903-1.925 4.416-1.38 2.571-2.74 4.312-2.797 4.385a.5.5 0 0 1-.393.191zm0-19C7.243 1 5 3.243 5 6c0 3.254 1.463 6.664 2.691 8.951A34.411 34.411 0 0 0 10 18.661a34.38 34.38 0 0 0 2.318-3.726C13.541 12.652 15 9.248 15 6c0-2.757-2.243-5-5-5z"/><path d="M10 9C8.346 9 7 7.654 7 6s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3zm0-5c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2z"/></symbol>
+		<symbol viewBox="0 0 20 20" id="lnr-phone-handset" xmlns="http://www.w3.org/2000/svg"><path d="M16 20c-1.771 0-3.655-.502-5.6-1.492-1.793-.913-3.564-2.22-5.122-3.78s-2.863-3.333-3.775-5.127C.515 7.655.013 5.771.013 4c0-1.148 1.07-2.257 1.529-2.68C2.203.711 3.243 0 3.999 0c.376 0 .816.246 1.387.774.425.394.904.928 1.383 1.544.289.372 1.73 2.271 1.73 3.182 0 .747-.845 1.267-1.739 1.816-.346.212-.703.432-.961.639-.276.221-.325.338-.333.364.949 2.366 3.85 5.267 6.215 6.215.021-.007.138-.053.363-.333.207-.258.427-.616.639-.961.55-.894 1.069-1.739 1.816-1.739.911 0 2.81 1.441 3.182 1.73.616.479 1.15.958 1.544 1.383.528.57.774 1.011.774 1.387 0 .756-.711 1.799-1.319 2.463-.424.462-1.533 1.537-2.681 1.537zM3.994 1c-.268.005-.989.333-1.773 1.055C1.477 2.741 1.014 3.486 1.014 4c0 6.729 8.264 15 14.986 15 .513 0 1.258-.465 1.944-1.213.723-.788 1.051-1.512 1.056-1.781-.032-.19-.558-.929-1.997-2.037-1.237-.952-2.24-1.463-2.498-1.469-.018.005-.13.048-.357.336-.197.251-.408.594-.613.926-.56.911-1.089 1.772-1.858 1.772a.97.97 0 0 1-.363-.071c-2.625-1.05-5.729-4.154-6.779-6.779-.126-.315-.146-.809.474-1.371.33-.299.786-.579 1.228-.851.332-.204.676-.415.926-.613.288-.227.331-.339.336-.357-.007-.258-.517-1.261-1.469-2.498C4.922 1.555 4.183 1.03 3.993.997z"/></symbol>
+</svg>
+
+<!--
+====================================================================================================
+-->
+		
+		<header>
+			<h1>SVG <code>&lt;symbol&gt;</code> sprite preview</h1>
+			<p>This preview features two methods of using the generated sprite in conjunction with inline SVG. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-html5" target="_blank">support inline SVG</a> for these techniques to work.</li>
+				<li>The embedded sprite (A) slightly differs from the generated external one. Please <a href="https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#defs--symbol-mode" target="_blank">see the documentation</a> for details on how to create such an embeddable sprite.</li>
+				<li>Internet Explorer up to version 11 doesn't support external sprites for use with inline SVG. For IE 9-11, you may polyfill this functionality with <a href="https://github.com/jonathantneal/svg4everybody" target="_blank">SVG for Everybody</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+	
+A) Inline SVG with embedded sprite
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) and are extracted out of the inline sprite
+embedded above. They may be styled via CSS.
+
+-->
+
+			<h3>A) Inline SVG with embedded sprite</h3>
+			<ul>
+
+				<li title="lnr-map-marker">
+					<div class="icon-box">
+						
+						<!-- lnr-map-marker -->
+						<svg class="svg-lnr-map-marker-dims">
+							<use xlink:href="#lnr-map-marker"></use>
+						</svg>
+						
+					</div>
+					<h2>lnr-map-marker</h2>
+				</li>
+				<li title="lnr-phone-handset">
+					<div class="icon-box">
+						
+						<!-- lnr-phone-handset -->
+						<svg class="svg-lnr-phone-handset-dims">
+							<use xlink:href="#lnr-phone-handset"></use>
+						</svg>
+						
+					</div>
+					<h2>lnr-phone-handset</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<section>
+
+<!--
+	
+B) Inline SVG with external sprite (IE 9-11 with polyfill only)
+====================================================================================================
+These SVG images make use of an URL + fragment identifiers (IDs) and refer to the regular external
+SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
+
+-->
+
+			<h3>B) Inline SVG with external sprite (IE 9-11 with polyfill only)</h3>
+			<ul>
+				
+				<li title="lnr-map-marker">
+					<div class="icon-box">
+						
+						<!-- lnr-map-marker -->
+						<svg class="svg-lnr-map-marker-dims">
+							<use xlink:href="images/svg/symbols.svg#lnr-map-marker"></use>
+						</svg>
+						
+					</div>
+					<h2>lnr-map-marker</h2>
+				</li>
+				<li title="lnr-phone-handset">
+					<div class="icon-box">
+						
+						<!-- lnr-phone-handset -->
+						<svg class="svg-lnr-phone-handset-dims">
+							<use xlink:href="images/svg/symbols.svg#lnr-phone-handset"></use>
+						</svg>
+						
+					</div>
+					<h2>lnr-phone-handset</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Mon, 05 Nov 2018 14:31:34 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>

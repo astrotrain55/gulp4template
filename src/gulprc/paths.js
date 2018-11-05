@@ -50,7 +50,7 @@ global.path = {
 
   svg: {
     src: 'svg/**/*.svg',
-    dest: '../images',
+    dest: '../',
   },
 
   name: {

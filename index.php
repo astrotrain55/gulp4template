@@ -51,16 +51,27 @@
   </head>
   <body>
     <main>
-      <section>
-        <ol>
-          <li>
-            <a href="php/">Главная</a>
-          </li>
-          <li>
-            <a href="php/02.php">Внутренняя</a>
-          </li>
-        </ol>
-      </section>
+      <section></section>
     </main>
+    <div class="jsMainTemplate" type="text/x-mustache-template" hidden>
+      <ol>
+        {{#.}}
+        <li>
+          <a href="./php/{{link}}" data-number="{{number}}">{{title}}</a>
+        </li>
+        {{/.}}
+      </ol>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.min.js"></script>
+    <script>
+      window.onload = function(){
+        $.getJSON('./json/data.json', function(data){
+          var e = $(".jsMainTemplate").html();
+          var m = Mustache.render(e, data);
+          $('section').append(m);
+        });
+      }
+    </script>
   </body>
 </html>
