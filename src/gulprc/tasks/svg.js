@@ -1,19 +1,48 @@
-let svg = require('gulp-svg-sprites');
+let svg = require('gulp-svg-sprite'),
+    cheerioGlobal = require('gulp-cheerio');
 
 module.exports = () => {
 
   $.gulp.task('svg', () => {
     return $.gulp.src(path.svg.src)
-      .pipe($.load.plumber())
-      .on("error", $.load.notify.onError({
-        title: 'svg',
-        message: "Error: <%= error.message %>"
+      .pipe($.load.svgmin({
+        js2svg: {
+          pretty: true
+        }
       }))
-      .pipe(svg({
-        preview: {
-          symbols: 'svg.html'
+      .pipe(cheerioGlobal({
+        run: function ($) {
+          $('[fill]').removeAttr('fill');
+          $('[stroke]').removeAttr('stroke');
+          $('[style]').removeAttr('style');
+          $('style').remove();
         },
-        mode: "symbols"
+        parserOptions: {xmlMode: true}
+      }))
+      // профилактика после cheerio
+      .pipe($.load.replace('&gt;', '>'))
+      .pipe(svg({
+        mode: {
+          symbol: { // подкаталог в dest
+            svg: {
+              rootAttributes: {
+                id: "svg-sprite"
+              },
+              xmlDeclaration: false // убирает <?xml version="1.0" encoding="utf-8"?>
+            },
+            sprite: "../images/svg/symbols.svg", // относительно подкаталога
+            render: {
+              styl: {
+                dest: '../src/assets/_svg.inc.styl', // относительно подкаталога
+                template: "svg-sprite.template.styl" // относительно gulpfile
+              }
+            },
+            example: {
+              dest: '../svg-sprite.example.html', // относительно подкаталога
+              template: "svg-sprite.template.html" // относительно gulpfile
+            }
+          }
+        }
       }))
       .pipe($.gulp.dest(path.svg.dest));
   });

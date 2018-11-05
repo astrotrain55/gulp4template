@@ -52,6 +52,7 @@ html(lang="ru-RU")
     <![endif]-->
   body
     //- include ../debugl
+    <?php require_once("../images/svg/symbols.svg"); ?>
     .page#top(class=main ? "main-page" : "")
       .container
         block container
@@ -60,4 +61,4 @@ html(lang="ru-RU")
     script(src!="<?=SITE_TEMPLATE_PATH?>/vendor.min.js?v=<?=rand()?>")
     script(src!="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>")
     block scripts
-    <?php require_once("../_pageWidget.inc.php"); ?>
+    <?php require_once("../widget/_widget.inc.php"); ?>
