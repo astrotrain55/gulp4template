@@ -1,5 +1,6 @@
-let nib = require('nib'),
-    gcmq = require('gulp-group-css-media-queries');
+const nib  = require('nib'),
+      gcmq = require('gulp-group-css-media-queries');
+
 
 module.exports = () => {
 

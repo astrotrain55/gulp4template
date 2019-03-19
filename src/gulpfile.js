@@ -12,8 +12,8 @@ global.$ = {
   sync: require('browser-sync').create()
 };
 
-$.tasks.forEach((taskPath) => {
-  require(taskPath)();
+$.tasks.forEach((task) => {
+  require(task)();
 });
 
 $.gulp.task('clear_cache', () => {

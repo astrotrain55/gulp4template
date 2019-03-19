@@ -1,7 +1,10 @@
+const getNameProject = require('./getNameProject');
+
+
 global.path = {
 
   server: {
-    proxy: '127.0.0.1/gulp4template/php/'
+    proxy: `127.0.0.1/${ getNameProject() }/php/`
   },
 
   watch: {

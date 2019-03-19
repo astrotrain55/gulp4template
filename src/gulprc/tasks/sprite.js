@@ -1,5 +1,6 @@
-let spritesmith = require('gulp.spritesmith'),
-    del = require('del');
+  const del = require('del'),
+spritesmith = require('gulp.spritesmith');
+
 
 module.exports = () => {
 

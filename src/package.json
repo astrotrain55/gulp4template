@@ -1,7 +1,7 @@
 {
   "repository": {
     "type": "git",
-    "url": "https://github.com/astrotrain55/gulp4template.git"
+    "url": "https://github.com/astrotrain55/gulp4webpack.git"
   },
   "license": "ISC",
   "description": "Стартовый шаблон для вёрстки",
@@ -9,12 +9,14 @@
     "download": "npm i -g gulp-cli rimraf && npm i",
     "go": "gulp",
     "clear": "gulp clear_cache",
-    "grid": "node smartgrid.settings.js",
-    "delete": "rimraf ./node_modules"
+    "grid": "node smartgrid.settings",
+    "delete": "rimraf ./node_modules",
+    "create": "node ./createModule"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "babel-plugin-root-import": "^6.1.0",
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.24.7",
     "del": "^3.0.0",
@@ -36,13 +38,20 @@
     "gulp-svg-sprite": "^1.5.0",
     "gulp-svgmin": "^2.1.0",
     "gulp.spritesmith": "^6.9.0",
+    "jshint": "^2.9.7",
+    "jshint-loader": "github:webpack-contrib/jshint-loader",
     "nib": "^1.1.2",
     "smart-grid": "^2.1.2",
     "webpack": "^4.19.1",
     "webpack-stream": "^5.1.1"
   },
   "dependencies": {
+    "@ungap/url-search-params": "^0.1.2",
+    "axios": "^0.18.0",
+    "dialog-polyfill": "^0.4.10",
+    "ejs": "^2.6.1",
     "enquire.js": "^2.1.6",
+    "es6-promise": "^4.2.5",
     "fullpage.js": "^3.0.2",
     "hc-sticky": "^2.2.1",
     "ion-rangeslider": "^2.2.0",
@@ -55,8 +64,10 @@
     "masonry-layout": "^4.2.2",
     "mustache": "^3.0.0",
     "particles.js": "^2.0.0",
+    "progressbar.js": "^1.0.1",
+    "pure-swipe": "^1.0.7",
     "select2": "^4.0.6-rc.1",
-    "slick-carousel": "^1.8.1",
+    "swiper": "^4.5.0",
     "whatwg-fetch": "^3.0.0",
     "wowjs": "^1.1.3"
   }
