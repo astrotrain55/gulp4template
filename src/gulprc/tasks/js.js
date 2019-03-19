@@ -1,5 +1,6 @@
-let stream = require('webpack-stream'),
-    webpack = require('webpack');
+const stream = require('webpack-stream'),
+     webpack = require('webpack');
+
 
 module.exports = () => {
 
@@ -37,7 +38,10 @@ module.exports = () => {
               loader: 'babel-loader',
               exclude: /(node_modules|vendor)/,
               query: {
-                presets: ['env']
+                presets: ['env'],
+                plugins: [["babel-plugin-root-import", {
+                  "rootPathSuffix": "./assets/modules"
+                }]]
               }
             },
             {
@@ -49,6 +53,24 @@ module.exports = () => {
               {
                 loader: 'expose-loader',
                 options: '$'
+              }]
+            },
+            {
+              test: /\.js$/,
+              enforce: 'pre',
+              exclude: /(node_modules|vendor)/,
+              use: [{
+                loader: 'jshint-loader',
+                query: {
+                  undef: true,
+                  unused: true,
+                  jquery: true,
+                  camelcase: true,
+                  emitErrors: false,
+                  failOnHint: false,
+                  esversion: 6,
+                  globals: ['window', 'document', 'console', 'Mustache']
+                }
               }]
             }
           ]

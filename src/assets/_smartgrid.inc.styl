@@ -28,10 +28,9 @@ wrapper-full()
   padding-left $fields
   padding-right $fields
 
-  w768-block(@block{
+  +w768-block()
     padding-left $fields_w768
     padding-right $fields_w768
-  })
 
 row-offsets()
   margin-left ($offset_one_side * -1)
@@ -216,53 +215,68 @@ w1200($name, $value)
   @media screen and (max-width: $break_w1200)
     {$name} $value
 
-w1200-block($content)
+w1200-block()
   @media screen and (max-width: $break_w1200)
-    {$content}
+    {block}
 
 w992($name, $value)
   @media screen and (max-width: $break_w992)
     {$name} $value
 
-w992-block($content)
+w992-block()
   @media screen and (max-width: $break_w992)
-    {$content}
+    {block}
 
 w768($name, $value)
   @media screen and (max-width: $break_w768)
     {$name} $value
 
-w768-block($content)
+w768-block()
   @media screen and (max-width: $break_w768)
-    {$content}
+    {block}
 
 w480($name, $value)
   @media screen and (max-width: $break_w480)
     {$name} $value
 
-w480-block($content)
+w480-block()
   @media screen and (max-width: $break_w480)
-    {$content}
+    {block}
 
 w320($name, $value)
   @media screen and (max-width: $break_w320)
     {$name} $value
 
-w320-block($content)
+w320-block()
   @media screen and (max-width: $break_w320)
-    {$content}
+    {block}
 
-from($min_width, $content)
+from($min_width)
   @media screen and (min-width: $min_width)
-    {$content}
+    {block}
 
-to($max_width, $content)
+to($max_width)
   @media screen and (max-width: $max_width)
-    {$content}
+    {block}
 
-from-to($min_width, $max_width, $content)
+from-to($min_width, $max_width)
   @media screen and (min-width: $min_width) and (max-width: $max_width)
-    {$content}
+    {block}
+
+u-row-flex($offset)
+  display flex
+  flex-wrap wrap
+  margin-left ($offset / -2)
+  margin-right ($offset / -2)
+
+u-col($offset)
+  box-sizing border-box
+  word-wrap break-word
+  margin-left ($offset / 2)
+  margin-right ($offset / 2)
+
+u-size($n, $columns, $offset)
+  width "calc(100% / %s * %s - %s)" % ($columns $n $offset)
 
 reset()
   body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,input,textarea,p,blockquote,th,td

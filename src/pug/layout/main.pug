@@ -2,7 +2,7 @@ include ../mixins
 block variables
   - var theme = '#808';
 
-<?php require_once("../_path.inc.php"); ?>
+<?php require_once("../_template.path.php"); ?>
 
 doctype html
 html(lang="ru-RU")
@@ -29,7 +29,7 @@ html(lang="ru-RU")
     meta(property="og:title" content=title)
     meta(property="og:site_name" content="")
     meta(property="og:description" content="")
-    meta(property="og:image" content!="<?=SITE_TEMPLATE_PATH?>/images/Skulltag_B.png")
+    meta(property="og:image" content!="<?=SITE_TEMPLATE_PATH?>/images/imageOpenGraph.png")
     //- Иконка сайта
     link(rel="icon" href!="<?=SITE_TEMPLATE_PATH?>/favicon.ico" type="image/x-icon")
     link(rel="shortcut icon" href!="<?=SITE_TEMPLATE_PATH?>/favicon.ico" type="image/x-icon")
@@ -39,7 +39,6 @@ html(lang="ru-RU")
     //- Стили
     link(rel="stylesheet" href!="<?=SITE_TEMPLATE_PATH?>/vendor.min.css?v=<?=rand()?>")
     link(rel="stylesheet" href!="<?=SITE_TEMPLATE_PATH?>/template_styles.css?v=<?=rand()?>")
-    block styles
     <!--[if lt IE 9]>
     //- hack for ie
     link(rel="stylesheet" href!="<?=SITE_TEMPLATE_PATH?>/ie/ie.css")
@@ -55,10 +54,11 @@ html(lang="ru-RU")
     <?php require_once("../images/svg/symbols.svg"); ?>
     .page#top(class=main ? "main-page" : "")
       .container
-        block container
+        include ../../assets/bem/header/header
+        block banner
+        block content
       include ../../assets/bem/footer/footer
     include ../../assets/bem/templates/templates
     script(src!="<?=SITE_TEMPLATE_PATH?>/vendor.min.js?v=<?=rand()?>")
     script(src!="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>")
-    block scripts
     <?php require_once("../widget/_widget.inc.php"); ?>

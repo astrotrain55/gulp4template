@@ -1,28 +1,36 @@
-import { separationRanks } from './modules/common/separationRanks.js';
-import { smoothScroll } from './modules/common/smoothScroll.js';
-import { detect as ie } from './modules/common/detectIE.js';
-import {fetch as fetchPolyfill} from 'whatwg-fetch';
-import './modules/youtube.js';
+import "dialog-polyfill";
 
-$('[href="#"]').on('click', function(e){
+import Ajax from "~/common/ajax";
+// import "~/common/youtube";
+import { createObjLocationSearch, createStringLocationSearch } from '~/common/locationSearch';
+import { separationRanks } from '~/common/separationRanks';
+import { smoothScroll } from '~/common/smoothScroll';
+import { detect as ie } from '~/common/detectIE';
+
+
+$(document).on('click', '[href="#"]', e => {
   e.preventDefault();
 });
 
 smoothScroll();
 
-$(function(){
-  $('.js-ranks').each(function(){
-    var then = $(this),
-        text = then.text();
-    then.text(separationRanks(text));
+$(function() {
+
+  $('.js-ranks').each((i, item) => {
+    let text = $(item).text();
+    $(item).text(separationRanks(text));
   });
 
-  console.log("Microsoft: " + ie());
+  const locationSearch = createObjLocationSearch('./?name=es6&extension=js');
+  console.log(locationSearch);
+  console.log(createStringLocationSearch(locationSearch));
+  console.log(`Microsoft: ${ ie() }`);
+
 });
 
-fetchPolyfill('../src/data/menu.json')
-  .then((response) => {
-    console.log(response.json());
-  }, (error) => {
-    console.log(error.message);
-  });
+Ajax({
+  action: '../src/data/menu.json',
+  success: json => {
+    console.log(json);
+  }
+});

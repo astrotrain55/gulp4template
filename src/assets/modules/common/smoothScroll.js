@@ -1,9 +1,25 @@
 // Плавный скролл
-export function smoothScroll(el = 'a[href^="#"]', to = 'href', time = 2000){
-  $(el).on('click', function(e){
+function smoothScroll(objSettings) {
+
+  const defaultSettings = {
+    el: 'a[href^="#"]',
+    to: 'href',
+    time: 2000,
+    effect: 'swing'
+  };
+
+  const settings = Object.assign(defaultSettings, objSettings);
+
+  $(settings.el).on('click', e => {
     e.preventDefault();
-    let elementClick = $(this).attr(to),
+    let elementClick = $(e.currentTarget).attr(settings.to),
         destination  = $(elementClick).offset().top;
-    $('html:not(:animated),body:not(:animated)').animate({scrollTop: destination}, time, 'swing');
+    $('html:not(:animated),body:not(:animated)').animate(
+      {scrollTop: destination},
+      settings.time,
+      settings.effect
+    );
   });
 }
+
+export {smoothScroll};
