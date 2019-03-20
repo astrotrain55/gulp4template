@@ -1,0 +1,11 @@
+extends ../layout/main
+
+append variables
+  - let title = 'Главная страница';
+  - let main = true;
+
+block banner
+  include ../../app-components/banner/banner
+
+block content
+  main.content

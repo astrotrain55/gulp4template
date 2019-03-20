@@ -9,38 +9,36 @@ global.path = {
 
   watch: {
     pug: [
-      'pug/**/*.pug',
-      'assets/bem/**/*.pug',
+      'app-components/**/*.pug',
+      'app-pug/**/*.pug',
       'data/**/*.json'
     ],
     styl: [
-      'assets/**/*.styl',
-      '!assets/+(libs|ie).styl'
+      'app-components/**/*.styl',
+      'app-stylus/**/*.styl',
+      '!app-stylus/+(libs|ie).styl'
     ],
-    js: 'assets/**/*.js',
-    vendor: 'assets/libs.styl',
-    ie: 'assets/ie.styl',
+    js: 'app-js/**/*.js',
+    vendor: 'app-stylus/libs.styl',
     svg: 'svg/**/*.svg',
     sprite: 'sprite/**/*.*'
   },
 
   pug: {
-    src: 'pug/pages/*.pug',
+    src: 'app-pug/pages/*.pug',
     dest: '../php/'
   },
 
   styl: {
-    src: 'assets/main.styl',
-    vendor: 'assets/libs.styl',
-    dest: '..',
-    ie: 'assets/ie.styl',
-    destIE: '../ie/'
+    src: 'app-stylus/main.styl',
+    vendor: 'app-stylus/libs.styl',
+    dest: '..'
   },
 
   js: {
     src: [
-      'assets/bem/**/*.js',
-      'assets/main.js'
+      'app-components/**/*.js',
+      'app-js/main.js'
     ],
     dest: '..'
   },
@@ -48,12 +46,12 @@ global.path = {
   sprite: {
     del: '../images/sprite.png',
     png: '../images/',
-    styl: 'assets/'
+    styl: 'app-stylus/'
   },
 
   svg: {
     src: 'svg/**/*.svg',
-    dest: '../',
+    dest: '../'
   },
 
   name: {
@@ -62,6 +60,12 @@ global.path = {
     vendor: 'vendor.min',
     sprite_png: 'sprite',
     sprite_styl: '_sprite.inc'
+  },
+
+  ie: {
+    watch: 'app-stylus/ie.styl',
+    src: 'app-stylus/ie.styl',
+    dest: '../ie/'
   }
 
 }

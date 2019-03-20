@@ -28,6 +28,6 @@ module.exports = () => {
     done();
   });
 
-  $.gulp.task('sprite', $.gulp.series('cleansprite','spritemade'));
+  $.gulp.task('sprite', $.gulp.series('cleansprite', 'spritemade'));
 
 };

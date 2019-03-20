@@ -34,7 +34,7 @@ module.exports = () => {
             sprite: "../images/svg/symbols.svg", // относительно подкаталога
             render: {
               styl: {
-                dest: '../src/assets/_svg.inc.styl', // относительно подкаталога
+                dest: '../src/app-stylus/_svg.inc.styl', // относительно подкаталога
                 template: "svg-sprite.template.styl" // относительно gulpfile
               }
             },

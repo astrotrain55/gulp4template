@@ -48,7 +48,7 @@
         <main class="content"></main>
       </div>
     </div>
-    <script type="text/x-mustache-template"></script>
+    <script type="text/x-template"></script>
     <script src="<?=SITE_TEMPLATE_PATH?>/vendor.min.js?v=<?=rand()?>"></script>
     <script src="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>"></script><?php require_once("../widget/_widget.inc.php"); ?>
   </body>
