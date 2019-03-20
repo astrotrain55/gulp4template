@@ -6,7 +6,6 @@
   "license": "ISC",
   "description": "Стартовый шаблон для вёрстки",
   "scripts": {
-    "download": "npm i -g gulp-cli rimraf && npm i",
     "go": "gulp",
     "clear": "gulp clear_cache",
     "grid": "node smartgrid.settings",
@@ -62,6 +61,7 @@
     "jquery.mmenu": "^7.1.0",
     "magnific-popup": "^1.1.0",
     "masonry-layout": "^4.2.2",
+    "mobx": "^5.9.0",
     "mustache": "^3.0.0",
     "particles.js": "^2.0.0",
     "progressbar.js": "^1.0.1",

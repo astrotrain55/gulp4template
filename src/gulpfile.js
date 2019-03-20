@@ -3,12 +3,10 @@
 require('./gulprc/paths.js');
 
 global.$ = {
-  fs: require('fs'),
   tasks: require('./gulprc/tasks.js'),
-
+  fs: require('fs'),
   gulp: require('gulp'),
   load: require('gulp-load-plugins')(),
-
   sync: require('browser-sync').create()
 };
 
@@ -21,6 +19,7 @@ $.gulp.task('clear_cache', () => {
 });
 
 $.gulp.task('default', $.gulp.series(
-  $.gulp.parallel('vendor', 'stylus', 'pug', 'js'),
-  $.gulp.parallel('serve', 'watch', 'ie')
+  $.gulp.parallel('pug', 'stylus', 'js'),
+  $.gulp.parallel('serve', 'watch'),
+  $.gulp.parallel('ie')
 ));

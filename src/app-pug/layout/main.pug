@@ -54,11 +54,11 @@ html(lang="ru-RU")
     <?php require_once("../images/svg/symbols.svg"); ?>
     .page#top(class=main ? "main-page" : "")
       .container
-        include ../../assets/bem/header/header
+        include ../../app-components/header/header
         block banner
         block content
-      include ../../assets/bem/footer/footer
-    include ../../assets/bem/templates/templates
+      include ../../app-components/footer/footer
+    include ../../app-components/templates/templates
     script(src!="<?=SITE_TEMPLATE_PATH?>/vendor.min.js?v=<?=rand()?>")
     script(src!="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>")
     <?php require_once("../widget/_widget.inc.php"); ?>

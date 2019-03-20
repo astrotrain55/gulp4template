@@ -40,7 +40,7 @@ module.exports = () => {
               query: {
                 presets: ['env'],
                 plugins: [["babel-plugin-root-import", {
-                  "rootPathSuffix": "./assets/modules"
+                  "rootPathSuffix": "./app-js"
                 }]]
               }
             },
