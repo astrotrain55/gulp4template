@@ -18,8 +18,7 @@ They might well be outsourced to an external stylesheet of course.
 -->
 
 <style type="text/css">
-	.svg-lnr-map-marker-dims { width: 20px; height: 20px; }
-	.svg-lnr-phone-handset-dims { width: 20px; height: 20px; }
+	.svg-youtube-dims { width: 68px; height: 48px; }
 	.icon-box svg {fill: currentColor;stroke: currentColor;}</style>
 <!--
 ====================================================================================================
@@ -42,8 +41,7 @@ for further details on how to create this embeddable sprite variant.
 -->
 
 <svg width="0" height="0" style="position:absolute">
-		<symbol viewBox="0 0 20 20" id="lnr-map-marker" xmlns="http://www.w3.org/2000/svg"><path d="M10 20a.5.5 0 0 1-.393-.191c-.057-.073-1.418-1.814-2.797-4.385-.812-1.513-1.46-2.999-1.925-4.416C4.298 9.221 4.001 7.536 4.001 6c0-3.308 2.692-6 6-6s6 2.692 6 6c0 1.536-.298 3.22-.884 5.008-.465 1.417-1.113 2.903-1.925 4.416-1.38 2.571-2.74 4.312-2.797 4.385a.5.5 0 0 1-.393.191zm0-19C7.243 1 5 3.243 5 6c0 3.254 1.463 6.664 2.691 8.951A34.411 34.411 0 0 0 10 18.661a34.38 34.38 0 0 0 2.318-3.726C13.541 12.652 15 9.248 15 6c0-2.757-2.243-5-5-5z"/><path d="M10 9C8.346 9 7 7.654 7 6s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3zm0-5c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2z"/></symbol>
-		<symbol viewBox="0 0 20 20" id="lnr-phone-handset" xmlns="http://www.w3.org/2000/svg"><path d="M16 20c-1.771 0-3.655-.502-5.6-1.492-1.793-.913-3.564-2.22-5.122-3.78s-2.863-3.333-3.775-5.127C.515 7.655.013 5.771.013 4c0-1.148 1.07-2.257 1.529-2.68C2.203.711 3.243 0 3.999 0c.376 0 .816.246 1.387.774.425.394.904.928 1.383 1.544.289.372 1.73 2.271 1.73 3.182 0 .747-.845 1.267-1.739 1.816-.346.212-.703.432-.961.639-.276.221-.325.338-.333.364.949 2.366 3.85 5.267 6.215 6.215.021-.007.138-.053.363-.333.207-.258.427-.616.639-.961.55-.894 1.069-1.739 1.816-1.739.911 0 2.81 1.441 3.182 1.73.616.479 1.15.958 1.544 1.383.528.57.774 1.011.774 1.387 0 .756-.711 1.799-1.319 2.463-.424.462-1.533 1.537-2.681 1.537zM3.994 1c-.268.005-.989.333-1.773 1.055C1.477 2.741 1.014 3.486 1.014 4c0 6.729 8.264 15 14.986 15 .513 0 1.258-.465 1.944-1.213.723-.788 1.051-1.512 1.056-1.781-.032-.19-.558-.929-1.997-2.037-1.237-.952-2.24-1.463-2.498-1.469-.018.005-.13.048-.357.336-.197.251-.408.594-.613.926-.56.911-1.089 1.772-1.858 1.772a.97.97 0 0 1-.363-.071c-2.625-1.05-5.729-4.154-6.779-6.779-.126-.315-.146-.809.474-1.371.33-.299.786-.579 1.228-.851.332-.204.676-.415.926-.613.288-.227.331-.339.336-.357-.007-.258-.517-1.261-1.469-2.498C4.922 1.555 4.183 1.03 3.993.997z"/></symbol>
+		<symbol viewBox="0 0 68 48" id="youtube" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill-opacity=".8"/><path d="M45 24L27 14v20"/></symbol>
 </svg>
 
 <!--
@@ -73,27 +71,16 @@ embedded above. They may be styled via CSS.
 			<h3>A) Inline SVG with embedded sprite</h3>
 			<ul>
 
-				<li title="lnr-map-marker">
+				<li title="youtube">
 					<div class="icon-box">
 						
-						<!-- lnr-map-marker -->
-						<svg class="svg-lnr-map-marker-dims">
-							<use xlink:href="#lnr-map-marker"></use>
+						<!-- youtube -->
+						<svg class="svg-youtube-dims">
+							<use xlink:href="#youtube"></use>
 						</svg>
 						
 					</div>
-					<h2>lnr-map-marker</h2>
-				</li>
-				<li title="lnr-phone-handset">
-					<div class="icon-box">
-						
-						<!-- lnr-phone-handset -->
-						<svg class="svg-lnr-phone-handset-dims">
-							<use xlink:href="#lnr-phone-handset"></use>
-						</svg>
-						
-					</div>
-					<h2>lnr-phone-handset</h2>
+					<h2>youtube</h2>
 				</li>
 			</ul>
 
@@ -116,27 +103,16 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 			<h3>B) Inline SVG with external sprite (IE 9-11 with polyfill only)</h3>
 			<ul>
 				
-				<li title="lnr-map-marker">
+				<li title="youtube">
 					<div class="icon-box">
 						
-						<!-- lnr-map-marker -->
-						<svg class="svg-lnr-map-marker-dims">
-							<use xlink:href="images/svg/symbols.svg#lnr-map-marker"></use>
+						<!-- youtube -->
+						<svg class="svg-youtube-dims">
+							<use xlink:href="images/svg/symbols.svg#youtube"></use>
 						</svg>
 						
 					</div>
-					<h2>lnr-map-marker</h2>
-				</li>
-				<li title="lnr-phone-handset">
-					<div class="icon-box">
-						
-						<!-- lnr-phone-handset -->
-						<svg class="svg-lnr-phone-handset-dims">
-							<use xlink:href="images/svg/symbols.svg#lnr-phone-handset"></use>
-						</svg>
-						
-					</div>
-					<h2>lnr-phone-handset</h2>
+					<h2>youtube</h2>
 				</li>
 			</ul>
 
@@ -146,7 +122,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 
 		</section>
 		<footer>
-			<p>Generated at Mon, 05 Nov 2018 14:31:34 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+			<p>Generated at Thu, 21 Mar 2019 03:52:39 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
 		</footer>
 	</body>
 </html>
