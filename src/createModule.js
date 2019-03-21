@@ -6,9 +6,9 @@ if (process.argv[2]) {
   process.argv.forEach((arg, i) => {
     if (i >= 2) {
 
-      let prefix = 'gpn-';
-      let name   = (process.argv[i]) ? `${process.argv[i]}` : '';
-      let folder = `./assets/bem/${name}/`;
+      let prefix = '';
+      let name   = `${prefix}${process.argv[i]}`;
+      let folder = `./app-components/${name}/`;
       let files  = [
         {
           dir: folder,

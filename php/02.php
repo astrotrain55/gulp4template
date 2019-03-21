@@ -47,7 +47,14 @@
         </header>
         <main class="content">
           <div class="wrapper">
-            <div style="width:700px;"></div>
+            <div class="grid">
+              <div class="grid__item grid__item--10"></div>
+              <div class="grid__item grid__item--14">
+                <svg class="icon icon-youtube ">
+                  <use xlink:href="#youtube"></use>
+                </svg>
+              </div>
+            </div>
           </div>
         </main>
       </div>

@@ -7,7 +7,7 @@ var settings = {
   columns: 24,
   offset: '2%',
   container: {
-    maxWidth: '1600px',
+    maxWidth: '1180px',
     fields: '30px' /* side fields */
   },
   breakPoints: {
@@ -35,4 +35,4 @@ var settings = {
   tab: "  "
 };
 
-smartgrid('./assets', settings);
+smartgrid('./app-stylus', settings);

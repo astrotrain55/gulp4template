@@ -1,6 +1,10 @@
 import axios from 'axios';
 
 
+axios.defaults.baseURL = '';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+
 export default function(setup = {}) {
 
   let success  = response => { console.log(response); };
