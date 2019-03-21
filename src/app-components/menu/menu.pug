@@ -1,4 +1,9 @@
-nav
-  ul
-    each link, name in menu.top
-      +menuTop(name, link)
+mixin menuTop(name, link)
+  li
+    a(href=link) #{name}
+
+mixin menu()
+  nav
+    ul
+      each link, name in menu.top
+        +menuTop(name, link)

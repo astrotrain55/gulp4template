@@ -1,8 +1,22 @@
 reset()
 
+.no-event
+  pointer-events none
+  cursor no-drop
+  opacity .5
+
+.no-scroll
+  overflow -moz-scrollbars-none
+  &::-webkit-scrollbar
+    width 0
+
+.no-focus
+  &:focus
+    outline 0
+
 html,
 body,
-.page
+.l-page
   height 100% // `Always on the bottom` Footer
 
 html
@@ -14,7 +28,7 @@ body
   min-width 32rem
   line-height 1.2
   overflow-x hidden
-  &.popup-open
+  &.b-popup-open
     overflow hidden
 
 a
@@ -27,6 +41,9 @@ button
   font-weight inherit
   background-color transparent
   border none
+  cursor pointer
+  padding 0
+  @extend .no-focus
 
 img
   max-width 100%
@@ -35,31 +52,21 @@ img
 textarea
   resize none
 
-.page
+.l-page
   display flex // `Always on the bottom` Footer
   flex-direction column // `Always on the bottom` Footer
 
-.container
+.l-container
   flex-grow 1 // `Always on the bottom` Footer
 
-.wrapper
+.l-wrapper
   wrapper()
   height 100%
   position relative
 
-.full
-  @extend .wrapper
+.l-full
+  @extend .l-wrapper
   max-width 192rem
-
-.no-event
-  pointer-events none
-  cursor no-drop
-  opacity .5
-
-.no-scroll
-  overflow -moz-scrollbars-none
-  &::-webkit-scrollbar
-    width 0
 
 .hidden
   opacity 0

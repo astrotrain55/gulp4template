@@ -1,4 +1,5 @@
 export default {
+
   all( collection, callback, emptyCallback = () => {} ) {
     let len = collection.length;
     if ( len ) {

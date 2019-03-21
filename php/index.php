@@ -33,10 +33,10 @@
     <script src="<?=SITE_TEMPLATE_PATH?>/ie/rem.min.js"></script><![endif]-->
   </head>
   <body><?php require_once("../images/svg/symbols.svg"); ?>
-    <div class="page main-page" id="top">
-      <div class="container">
+    <div class="l-page main-page" id="top">
+      <div class="l-container">
         <header class="header">
-          <div class="wrapper">
+          <div class="l-wrapper">
             <nav>
               <ul>
                 <li><a href="index.php">Главная страница</a></li>
@@ -45,10 +45,22 @@
             </nav>
           </div>
         </header>
-        <main class="content"></main>
+        <div class="banner"></div>
+        <main class="l-content">
+        </main>
       </div>
+      <footer class="footer">
+        <div class="l-wrapper"></div><a class="scroll-top" href="#top">
+          <button type="button">
+            <svg class="icon icon-arrow-up scroll-top__icon">
+              <use xlink:href="#arrow-up"></use>
+            </svg>
+          </button></a>
+      </footer>
     </div>
-    <script type="text/x-template"></script>
+    <div class="js-templates">
+      <script type="text/x-template"></script>
+    </div>
     <script src="<?=SITE_TEMPLATE_PATH?>/vendor.min.js?v=<?=rand()?>"></script>
     <script src="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>"></script><?php require_once("../widget/_widget.inc.php"); ?>
   </body>

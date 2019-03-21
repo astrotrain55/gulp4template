@@ -1,4 +1,4 @@
-include ../mixins
+include ../includeMixins
 block variables
   - var theme = '#808';
 
@@ -50,15 +50,16 @@ html(lang="ru-RU")
     script(src!="<?=SITE_TEMPLATE_PATH?>/ie/rem.min.js")
     <![endif]-->
   body
-    //- include ../debugl
+    +debug()
     <?php require_once("../images/svg/symbols.svg"); ?>
-    .page#top(class=main ? "main-page" : "")
-      .container
-        include ../../app-components/header/header
+    .l-page#top(class=main ? "main-page" : "")
+      .l-container
+        +header()
         block banner
-        block content
-      include ../../app-components/footer/footer
-    include ../../app-components/templates/templates
+        main.l-content
+          block content
+      +footer()
+    +templates()
     script(src!="<?=SITE_TEMPLATE_PATH?>/vendor.min.js?v=<?=rand()?>")
     script(src!="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>")
     <?php require_once("../widget/_widget.inc.php"); ?>

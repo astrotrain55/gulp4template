@@ -1,7 +1,7 @@
 import "dialog-polyfill";
 
 import Ajax from "~/common/ajax";
-// import "~/common/youtube";
+import { initYouTube } from "~/common/youtube";
 import { createObjLocationSearch, createStringLocationSearch } from '~/common/locationSearch';
 import { separationRanks } from '~/common/separationRanks';
 import { smoothScroll } from '~/common/smoothScroll';
@@ -15,6 +15,8 @@ $(document).on('click', '[href="#"]', e => {
 smoothScroll();
 
 $(function() {
+
+  initYouTube();
 
   $('.js-ranks').each((i, item) => {
     let text = $(item).text();

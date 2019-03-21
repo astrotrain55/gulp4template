@@ -1,11 +1,4 @@
-include includeMixins
-
-mixin menuTop(name, link)
-  li
-    a(href=link) #{name}
-
-mixin svg(name, bem)
-  - bem = bem || '';
-  svg.icon(class="icon-" + name + ' ' + bem)
-    use(xlink:href="#" + name)
+mixin svg(name)
+  svg.icon(class=`icon-${name}`)&attributes(attributes)
+    use(xlink:href=`#${name}`)
       //- ../images/svg/symbols.svg
