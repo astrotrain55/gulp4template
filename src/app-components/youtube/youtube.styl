@@ -1,58 +1,52 @@
 .youtube
   position relative
-  &__ratio
-    padding-top 56.25%
-    height 0
-  &__iframe
+  width 100%
+  height 0
+  padding-bottom 56.25%
+  background-color #000000
+  &:hover &__button-shape
+  &__button:focus &__button-shape
+    fill #ff0000
+    fill-opacity 1
+    transition fill .1s cubic-bezier(0.0,0.0,0.2,1), fill-opacity .1s cubic-bezier(0.0,0.0,0.2,1)
+  &--enabled
+    cursor pointer
+  &--enabled &__button
+    display block
+  &__link
     position absolute
-    width 100%
-    height 100%
     top 0
     left 0
-    border 0
-    overflow hidden
-    background-size cover
-    background-position center
-    background-repeat no-repeat
-  &__play
+    width 100%
+    height 100%
+  &__media
     position absolute
-    left 50%
+    top 0
+    left 0
+    width 100%
+    height 100%
+    border none
+  &__button
+    position absolute
     top 50%
+    left 50%
+    z-index 1
+    display none
+    padding 0
     width 68px
     height 48px
-    margin-left -34px
-    margin-top -24px
-    cursor pointer
-    border 0
+    border none
     background-color transparent
-    padding 0
-    opacity 0.8
-    filter "alpha(opacity=80)"
+    transform translate(-50%, -50%)
+    cursor pointer
     &:focus
-      outline 0
-      opacity 1
-      filter "alpha(opacity=100)"
-    &:hover
-      .ytp-large-play-button-bg
-        transition fill .1s cubic-bezier(0.0,0.0,0.2,1), fill-opacity .1s cubic-bezier(0.0,0.0,0.2,1)
-        fill #f00
-        fill-opacity 1
-    svg
-      position absolute
-      top 0
-      left 0
-      width 100%
-      height 100%
-      pointer-events none
-    .ytp-large-play-button-bg
-      transition fill .1s cubic-bezier(0.4,0.0,1,1), fill-opacity .1s cubic-bezier(0.4,0.0,1,1)
-      fill #212121
-      fill-opacity .8
-
-#youtube
-  path:first-child
+      outline none
+  &__button-svg
+    width 100%
+    height 100%
+  &__button-shape
     fill #212121
-    &:hover
-      fill #f00
-  path:last-child
-    fill #fff
+    fill-opacity .8
+    transition fill .1s cubic-bezier(0.4,0.0,1,1), fill-opacity .1s cubic-bezier(0.4,0.0,1,1)
+  &__button-icon
+    fill #ffffff

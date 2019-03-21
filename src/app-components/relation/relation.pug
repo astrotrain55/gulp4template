@@ -1,0 +1,5 @@
+mixin relation(resolution = "1-1", content = false)
+  .relation(class=`relation--${resolution}`)&attributes(attributes)
+    .relation__content(class=content)
+      if(block)
+        block
