@@ -1,6 +1,6 @@
 const stream = require('webpack-stream'),
-     webpack = require('webpack');
-
+     webpack = require('webpack'),
+        Path = require('path');
 
 module.exports = () => {
 
@@ -38,10 +38,7 @@ module.exports = () => {
               loader: 'babel-loader',
               exclude: /(node_modules|vendor)/,
               query: {
-                presets: ['env'],
-                plugins: [["babel-plugin-root-import", {
-                  "rootPathSuffix": "./app-js"
-                }]]
+                presets: ['@babel/preset-env']
               }
             },
             {
@@ -74,6 +71,13 @@ module.exports = () => {
               }]
             }
           ]
+        },
+
+        resolve: {
+          alias: {
+            root: Path.resolve(__dirname, '..', '..', 'app-js'),
+            components: Path.resolve(__dirname, '..', '..', 'app-components')
+          }
         },
 
         // externals: {

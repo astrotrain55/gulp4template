@@ -1,11 +1,11 @@
 import "dialog-polyfill";
 
-import Ajax from "~/common/ajax";
-import { initYouTube } from "~/common/youtube";
-import { createObjLocationSearch, createStringLocationSearch } from '~/common/locationSearch';
-import { separationRanks } from '~/common/separationRanks';
-import { smoothScroll } from '~/common/smoothScroll';
-import { detect as ie } from '~/common/detectIE';
+import Ajax from "root/common/ajax";
+import { createObjLocationSearch, createStringLocationSearch } from 'root/common/locationSearch';
+import { separationRanks } from 'root/common/separationRanks';
+import { smoothScroll } from 'root/common/smoothScroll';
+import { detect as ie } from 'root/common/detectIE';
+import { initYouTube  } from "components/youtube/youtube";
 
 
 $(document).on('click', '[href="#"]', e => {

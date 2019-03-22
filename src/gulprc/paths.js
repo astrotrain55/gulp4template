@@ -36,10 +36,7 @@ global.path = {
   },
 
   js: {
-    src: [
-      'app-components/**/*.js',
-      'app-js/main.js'
-    ],
+    src: 'app-js/main.js',
     dest: '..'
   },
 
