@@ -18,7 +18,10 @@ global.path = {
       'app-stylus/**/*.styl',
       '!app-stylus/+(libs|ie).styl'
     ],
-    js: 'app-js/**/*.js',
+    js: [
+      'app-js/**/*.js',
+      'app-components/**/*.js'
+    ],
     vendor: 'app-stylus/libs.styl',
     svg: 'svg/**/*.svg',
     sprite: 'sprite/**/*.*'

@@ -4,12 +4,11 @@ import axios from 'axios';
 axios.defaults.baseURL = '';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-
 export default function(setup = {}) {
 
   let success  = response => { console.log(response); };
   let callback = setup.success || success;
-  let data = new Set(["POST", "PUT"]);
+  let data = new Set(['POST', 'PUT']);
 
   let config = {};
   config.url = (setup.action) ? setup.action : window.location.href;
