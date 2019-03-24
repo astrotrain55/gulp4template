@@ -13,6 +13,12 @@ if (process.argv[2]) {
         {
           dir: folder,
           name: name,
+          extension: 'js',
+          text: ''
+        },
+        {
+          dir: folder,
+          name: name,
           extension: 'styl',
           text: `.${name}\r  // &__`
         },

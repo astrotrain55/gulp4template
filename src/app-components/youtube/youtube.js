@@ -31,14 +31,25 @@ function createIframe(id) {
   iframe.setAttribute('allow', 'autoplay');
   iframe.setAttribute('src', generateURL(id));
   iframe.classList.add('youtube__media');
+  iframe.classList.add('js-youtube-api');
+
+  addEvent(iframe, 'playVideo');
+  addEvent(iframe, 'pauseVideo');
+  addEvent(iframe, 'stopVideo');
 
   return iframe;
 }
 
 function generateURL(id) {
-  let query = '?rel=0&showinfo=0&autoplay=1';
+  let query = '?rel=0&showinfo=0&autoplay=1&enablejsapi=1';
 
   return 'https://www.youtube.com/embed/' + id + query;
+}
+
+function addEvent(video, event) {
+  video[event] = () => {
+    video.contentWindow.postMessage(`{"event":"command","func":"${event}"}`, '*');
+  };
 }
 
 export {initYouTube};

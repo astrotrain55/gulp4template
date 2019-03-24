@@ -40,17 +40,4 @@ export default {
     }
   }
 
-  getParent( elem, parentSelector ) {
-    let parents = document.querySelectorAll(parentSelector);
-    let length = parents.length;
-
-    for (let i = 0; i < length; i++) {
-      if (parents[i].contains(elem)) {
-        return parents[i];
-      }
-    }
-
-    return null;
-  }
-
 };

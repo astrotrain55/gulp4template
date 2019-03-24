@@ -76,7 +76,8 @@ module.exports = () => {
         resolve: {
           alias: {
             root: Path.resolve(__dirname, '..', '..', 'app-js'),
-            components: Path.resolve(__dirname, '..', '..', 'app-components')
+            components: Path.resolve(__dirname, '..', '..', 'app-components'),
+            vendor: Path.resolve(__dirname, '..', '..', 'vendor')
           }
         },
 
