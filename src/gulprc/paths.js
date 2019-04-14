@@ -9,6 +9,7 @@ global.path = {
 
   watch: {
     pug: [
+      'app-components/**/*.ejs',
       'app-components/**/*.pug',
       'app-pug/**/*.pug',
       'data/**/*.json'

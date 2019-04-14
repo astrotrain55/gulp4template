@@ -1,3 +1,17 @@
+noEvent()
+  pointer-events none
+  cursor no-drop
+  opacity .5
+
+noScroll()
+  overflow -moz-scrollbars-none
+  &::-webkit-scrollbar
+    width 0
+
+noOutline()
+  &:focus
+    outline 0
+
 // Миксины для спрайта
 spriteWidth($sprite)
   width $sprite[4]

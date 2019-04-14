@@ -1,5 +1,6 @@
 import dom from 'root/common/dom';
 
+
 // Разделение разрядов числа пробелами
 const separationRanks = {
 

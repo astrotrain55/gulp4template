@@ -8,7 +8,7 @@ if (process.argv[2]) {
 
       let prefix = '';
       let name   = `${prefix}${process.argv[i]}`;
-      let folder = `./app-components/${name}/`;
+      let folder = `./app-components/${name}`;
       let files  = [
         {
           dir: folder,
@@ -55,5 +55,5 @@ function createFile(filename, content) {
 }
 
 function getFullPath(file) {
-  return `${file.dir}${file.name}.${file.extension}`
+  return `${file.dir}/${file.name}.${file.extension}`
 }
