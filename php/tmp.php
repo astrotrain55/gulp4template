@@ -59,7 +59,11 @@
       </footer>
     </div>
     <div class="js-templates">
-      <script type="text/x-template"></script>
+      <script class="js-templates--ejs" type="text/x-template"><ul>
+  <li><%- people.join("</li><li>"); %></li>
+</ul>
+
+      </script>
     </div>
     <script src="<?=SITE_TEMPLATE_PATH?>/vendor.min.js?v=<?=rand()?>"></script>
     <script src="<?=SITE_TEMPLATE_PATH?>/scripts.min.js?v=<?=rand()?>"></script><?php require_once("../widget/_widget.inc.php"); ?>

@@ -1,19 +1,5 @@
 reset()
 
-.no-event
-  pointer-events none
-  cursor no-drop
-  opacity .5
-
-.no-scroll
-  overflow -moz-scrollbars-none
-  &::-webkit-scrollbar
-    width 0
-
-.no-focus
-  &:focus
-    outline 0
-
 html,
 body,
 .l-page
@@ -43,7 +29,7 @@ button
   border none
   cursor pointer
   padding 0
-  @extend .no-focus
+  noOutline()
 
 img
   max-width 100%

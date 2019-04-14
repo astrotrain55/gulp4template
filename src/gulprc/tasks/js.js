@@ -66,7 +66,7 @@ module.exports = () => {
                   emitErrors: false,
                   failOnHint: false,
                   esversion: 6,
-                  globals: ['window', 'document', 'console', 'Mustache']
+                  globals: ['window', 'document', 'console', 'ejs']
                 }
               }]
             }
@@ -85,11 +85,14 @@ module.exports = () => {
         //   jquery: 'jQuery'
         // },
 
+        node: {
+          fs: 'empty'
+        },
+
         plugins: [
           new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery',
-            Mustache: 'mustache'
+            jQuery: 'jquery'
           })
         ]
 

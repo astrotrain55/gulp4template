@@ -11,7 +11,6 @@
   * **[JSHint](https://jshint.com/)**
   * **[MobX](https://mobx.js.org/)**
   * **[EJS](https://ejs.co/)**
-  * **[{{ mustache }}](https://github.com/janl/mustache.js)**
 * Ajax **[axios](https://github.com/axios/axios)**
 * Слайдер **[Swiper](https://idangero.us/swiper/)**
 * SVG-спрайты **[gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite)**
@@ -20,13 +19,12 @@
 * ```mkdir projectName```
 * ```cd projectName```
 * ```git clone https://github.com/astrotrain55/gulp4webpack.git .```
-* ```cd ./src```
 * Если установлен Gulp 3, удаляем: ```[sudo] npm rm -g gulp```
-* ```[sudo] npm i -g gulp-cli rimraf gulp-cheerio```
+* ```[sudo] npm i -g gulp-cli rimraf```
 * ```npm i```
-* ```[sudo] npm link gulp-cheerio```
 
 ### Команды:
+* ```cd ./src```
 * Запустить проект ```npm run go```
 * Сгенерировать сетку ```npm run grid```
 * Создать компоненты ```npm run create компонент1 компонент2 ... компонентN```

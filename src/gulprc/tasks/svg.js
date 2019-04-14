@@ -1,5 +1,5 @@
-    const svg = require('gulp-svg-sprite'),
-cheerioGlobal = require('gulp-cheerio');
+const svg = require('gulp-svg-sprite'),
+  cheerio = require('gulp-cheerio');
 
 
 module.exports = () => {
@@ -11,7 +11,7 @@ module.exports = () => {
           pretty: true
         }
       }))
-      .pipe(cheerioGlobal({
+      .pipe(cheerio({
         run: $ => {
           $('[fill]').removeAttr('fill');
           $('[stroke]').removeAttr('stroke');

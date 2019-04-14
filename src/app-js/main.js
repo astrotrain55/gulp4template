@@ -1,19 +1,14 @@
-import 'dialog-polyfill';
+// import dialogPolyfill from 'dialog-polyfill';
+// dialogPolyfill.registerDialog(document.querySelector('dialog'));
 
 import Ajax from 'root/common/ajax';
+import ready from 'root/common/ready';
+import render from 'root/common/render';
 import { createObjLocationSearch, createStringLocationSearch } from 'root/common/locationSearch';
 import { separationRanks } from 'root/common/separationRanks';
 import { detect as ie } from 'root/common/detectIE';
 import { initYouTube  } from 'components/youtube/youtube';
 
-
-function ready(fn) {
-  if (document.readyState != 'loading') {
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
 
 ready(() => {
 
@@ -34,5 +29,8 @@ ready(() => {
   console.log(locationSearch);
   console.log(createStringLocationSearch(locationSearch));
   console.log(`Microsoft: ${ ie() }`);
+  console.log(render('.js-templates--ejs', {
+    people: ['geddy', 'neil', 'alex']
+  }));
 
 });
