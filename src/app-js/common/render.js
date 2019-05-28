@@ -1,8 +1,9 @@
-import ejs from 'ejs';
+import _ from 'libs/lodash';
 
 
-export default (selector, data) => {
-  const templates = document.querySelector('.js-templates'),
-        template  = templates.querySelector(selector).textContent;
-  return ejs.render(template.trim(), data);
+export default (selector, state) => {
+  const templates = document.getElementById('templates');
+  const tpl = templates.querySelector(selector).textContent;
+  const compiled = _.template(tpl);
+  return _.trim(compiled(state));
 };

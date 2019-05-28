@@ -1,5 +1,5 @@
 function initYouTube() {
-  let videos = document.querySelectorAll('.js-youtube');
+  const videos = document.querySelectorAll('.js-youtube');
 
   for (let i = 0; i < videos.length; i++) {
     setupVideo(videos[i]);
@@ -7,12 +7,12 @@ function initYouTube() {
 }
 
 function setupVideo(video) {
-  let link = video.querySelector('.js-youtube--link');
-  let button = video.querySelector('.js-youtube--button');
-  let id = video.getAttribute('data-id');
+  const link = video.querySelector('.js-youtube--link');
+  const button = video.querySelector('.js-youtube--button');
+  const id = video.getAttribute('data-id');
 
   video.addEventListener('click', () => {
-    let iframe = createIframe(id);
+    const iframe = createIframe(id);
 
     link.remove();
     button.remove();
@@ -25,7 +25,7 @@ function setupVideo(video) {
 }
 
 function createIframe(id) {
-  let iframe = document.createElement('iframe');
+  const iframe = document.createElement('iframe');
 
   iframe.setAttribute('allowfullscreen', '');
   iframe.setAttribute('allow', 'autoplay');
@@ -41,9 +41,9 @@ function createIframe(id) {
 }
 
 function generateURL(id) {
-  let query = '?rel=0&showinfo=0&autoplay=1&enablejsapi=1';
+  const query = '?rel=0&showinfo=0&autoplay=1&enablejsapi=1';
 
-  return 'https://www.youtube.com/embed/' + id + query;
+  return `https://www.youtube.com/embed/${id}${query}`;
 }
 
 function addEvent(video, event) {

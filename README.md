@@ -1,27 +1,32 @@
 ## Стартовый шаблон
 
 ### Компоненты:
-* **[Gulp](https://gulpjs.com/) 4**
-* **[Pug](https://pugjs.org/)**
-* **[Stylus](http://stylus-lang.com/)**
-  * Библиотека миксинов **[nib](http://stylus.github.io/nib/)**
-  * Сетка **Smartgrid** ([YouTube](https://www.youtube.com/watch?v=KFVoIzaGPYg&list=PLyeqauxei6je28tJvioIsE0bYnARh0UVz))
-* **[Webpack](https://webpack.js.org/) 4**
+
+#### **[Gulp](https://gulpjs.com/) 4**:
+  * **[Pug](https://pugjs.org/)**
+  * **[Stylus](http://stylus-lang.com/)**
+    * **[nib](http://stylus.github.io/nib/)**
+    * **[Smartgrid](https://www.youtube.com/watch?v=KFVoIzaGPYg&list=PLyeqauxei6je28tJvioIsE0bYnARh0UVz)**
+  * **[gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite)**
+
+#### **[Webpack](https://webpack.js.org/) 4**:
   * **[Babel](https://babeljs.io/)**
-  * **[JSHint](https://jshint.com/)**
+  * **[ESLint](https://eslint.org/)**
+  * **[Lodash](https://lodash.com/)**
+  * **[axios](https://github.com/axios/axios)**
+  * **[Swiper](https://idangero.us/swiper/)**
   * **[MobX](https://mobx.js.org/)**
-  * **[EJS](https://ejs.co/)**
-* Ajax **[axios](https://github.com/axios/axios)**
-* Слайдер **[Swiper](https://idangero.us/swiper/)**
-* SVG-спрайты **[gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite)**
+  * **[jQuery](https://jquery.com/)**
+
+#### **[Style Guide](https://github.com/leonidlebedev/javascript-airbnb)**
 
 ### Установка:
 * ```mkdir projectName```
 * ```cd projectName```
 * ```git clone https://github.com/astrotrain55/gulp4webpack.git .```
-* Если установлен Gulp 3, удаляем: ```[sudo] npm rm -g gulp```
 * ```[sudo] npm i -g gulp-cli rimraf```
 * ```npm i```
+* ```npm i -D gulp-cheerio```
 
 ### Команды:
 * ```cd ./src```
@@ -29,4 +34,26 @@
 * Сгенерировать сетку ```npm run grid```
 * Создать компоненты ```npm run create компонент1 компонент2 ... компонентN```
 * Удалить node_modules ```npm run delete```
-* Очистить кэш ```npm run clear```
+* Искать списком ```npm run list строка```
+* Искать подробно ```npm run grep строка```
+
+### Полезные пакеты, отсутствующие в сборке:
+* @ungap/url-search-params
+* fullpage.js
+* hc-sticky
+* ion-rangeslider
+* jquery-file-upload
+* jquery-mask-plugin
+* jquery-validation
+* jquery.mmenu
+* enquire.js
+* es6-promise
+* magnific-popup
+* masonry-layout
+* particles.js
+* progressbar.js
+* pure-swipe
+* stickybits
+* select2
+* whatwg-fetch
+* wowjs
