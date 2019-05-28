@@ -1,19 +1,20 @@
-import dom from 'root/common/dom';
+import _ from 'libs/lodash';
 
 
 // Разделение разрядов числа пробелами
 const separationRanks = {
 
   separation(number) {
-    return (String(number)) ? String(number).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') : number;
+    return (String(number)) ? _.replace(String(number), /(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') : number;
   },
 
   init(selector) {
-    dom.all(document.querySelectorAll(selector), el => {
-      el.textContent = this.separation(el.textContent);
+    _.each(document.querySelectorAll(selector), (el) => {
+      const elem = el;
+      elem.textContent = this.separation(elem.textContent);
     });
-  }
+  },
 
 };
 
-export {separationRanks};
+export default separationRanks;

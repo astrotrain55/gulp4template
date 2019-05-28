@@ -1,30 +1,29 @@
 import axios from 'axios';
+import _ from 'libs/lodash';
 
 
 axios.defaults.baseURL = '';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-export default function(setup = {}) {
+export default function (setup = {}) {
+  const success = (response) => { console.log(response); };
+  const callback = setup.success || success;
+  const data = new Set(['POST', 'PUT']);
 
-  let success  = response => { console.log(response); };
-  let callback = setup.success || success;
-  let data = new Set(['POST', 'PUT']);
-
-  let config = {};
+  const config = {};
   config.url = (setup.action) ? setup.action : window.location.href;
   config.method = (setup.method) ? setup.method : 'GET';
   config.responseType = (setup.type) ? setup.type : 'json';
 
-  if ( data.has(config.method.toUpperCase()) ) {
+  if (data.has(_.toUpper(config.method))) {
     config.data = setup.data;
   } else {
     config.params = setup.data;
   }
 
-  axios(config).then(response => {
+  axios(config).then((response) => {
     callback(response.data);
-  }).catch(error => {
+  }).catch((error) => {
     console.log(error);
   });
-
 }

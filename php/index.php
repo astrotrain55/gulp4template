@@ -58,9 +58,9 @@
           </button></a>
       </footer>
     </div>
-    <div class="js-templates">
-      <script class="js-templates--ejs" type="text/x-template"><ul>
-  <li><%- people.join("</li><li>"); %></li>
+    <div id="templates">
+      <script class="js-templates" type="text/x-template"><ul>
+  <li><%= people.join('</li><li>') %></li>
 </ul>
 
       </script>

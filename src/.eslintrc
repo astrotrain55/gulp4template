@@ -1,0 +1,26 @@
+{
+  "plugins": ["lodash", "only-warn"],
+  "extends": ["airbnb-base", "plugin:lodash/recommended"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "no-console": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./webpack.config.js"
+      },
+      "alias": [
+        ["libs", "./app-js/libs/"],
+        ["store", "./app-js/store/"],
+        ["root", "./app-js/"],
+        ["components", "./app-components/"],
+        ["vendor", "./vendor/"]
+      ]
+    }
+  }
+}
