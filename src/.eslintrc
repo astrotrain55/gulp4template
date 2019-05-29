@@ -1,6 +1,6 @@
 {
   "plugins": ["lodash", "only-warn"],
-  "extends": ["airbnb-base", "plugin:lodash/recommended"],
+  "extends": ["eslint:recommended", "plugin:lodash/recommended", "airbnb-base"],
   "env": {
     "browser": true,
     "node": true,
@@ -8,6 +8,10 @@
   },
   "rules": {
     "no-console": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
   },
   "settings": {
     "import/resolver": {

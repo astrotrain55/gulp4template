@@ -52,4 +52,4 @@ function addEvent(video, event) {
   };
 }
 
-export {initYouTube};
+export default initYouTube;

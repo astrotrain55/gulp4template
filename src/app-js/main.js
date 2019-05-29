@@ -1,8 +1,9 @@
+import events from 'eventslibjs';
 import Ajax from 'root/common/ajax';
 import ready from 'root/common/ready';
 import render from 'root/common/render';
 import separationRanks from 'root/common/separationRanks';
-import { initYouTube } from 'components/youtube/youtube';
+import initYouTube from 'components/youtube/youtube';
 import { detect as ie } from 'root/common/detectIE';
 import { createObjLocationSearch, createStringLocationSearch } from 'root/common/locationSearch';
 
@@ -26,8 +27,9 @@ ready(() => {
   const locationSearch = createObjLocationSearch('./?name=es6&extension=js');
   console.log(locationSearch);
   console.log(createStringLocationSearch(locationSearch));
-  console.log(`Microsoft: ${ie()}`);
+  console.log(events.get());
   console.log(render('.js-templates', {
     people: ['html', 'css', 'javascript'],
   }));
+  console.log(`Microsoft: ${ie()}`);
 });

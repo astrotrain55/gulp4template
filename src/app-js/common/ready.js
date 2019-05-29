@@ -1,7 +1,10 @@
+import events from 'eventslibjs';
+
+
 export default (fn) => {
   if (document.readyState !== 'loading') {
     fn();
   } else {
-    document.addEventListener('DOMContentLoaded', fn);
+    events.on('DOMContentLoaded', document, fn);
   }
 };
