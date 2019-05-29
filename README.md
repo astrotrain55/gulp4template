@@ -26,7 +26,7 @@
 * ```git clone https://github.com/astrotrain55/gulp4webpack.git .```
 * ```[sudo] npm i -g gulp-cli rimraf```
 * ```npm i```
-* ```npm i -D gulp-cheerio```
+* ```npm i gulp-cheerio@^0.6.3```
 
 ### Команды:
 * ```cd ./src```
@@ -34,6 +34,7 @@
 * Сгенерировать сетку ```npm run grid```
 * Создать компоненты ```npm run create компонент1 компонент2 ... компонентN```
 * Удалить node_modules ```npm run delete```
+* Очистить кэш ```npm run clear```
 * Искать списком ```npm run list строка```
 * Искать подробно ```npm run grep строка```
 
