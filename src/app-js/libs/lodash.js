@@ -1,4 +1,4 @@
-import each from 'lodash/each';
+import each from 'lodash/forEach';
 import noop from 'lodash/noop';
 import replace from 'lodash/replace';
 import template from 'lodash/template';

@@ -1,27 +1,17 @@
-function initYouTube() {
-  const videos = document.querySelectorAll('.js-youtube');
+import _ from 'libs/lodash';
+import events from 'eventslibjs';
 
-  for (let i = 0; i < videos.length; i++) {
-    setupVideo(videos[i]);
-  }
+
+function addEvent(iframe, event) {
+  const video = iframe;
+  video[event] = () => {
+    video.contentWindow.postMessage(`{"event":"command","func":"${event}"}`, '*');
+  };
 }
 
-function setupVideo(video) {
-  const link = video.querySelector('.js-youtube--link');
-  const button = video.querySelector('.js-youtube--button');
-  const id = video.getAttribute('data-id');
-
-  video.addEventListener('click', () => {
-    const iframe = createIframe(id);
-
-    link.remove();
-    button.remove();
-    video.appendChild(iframe);
-  });
-
-  link.removeAttribute('href');
-  link.removeAttribute('target');
-  video.classList.add('youtube--enabled');
+function generateURL(id) {
+  const query = '?rel=0&showinfo=0&autoplay=1&enablejsapi=1';
+  return `https://www.youtube.com/embed/${id}${query}`;
 }
 
 function createIframe(id) {
@@ -40,16 +30,30 @@ function createIframe(id) {
   return iframe;
 }
 
-function generateURL(id) {
-  const query = '?rel=0&showinfo=0&autoplay=1&enablejsapi=1';
+function setupVideo(video) {
+  const link = video.querySelector('.js-youtube--link');
+  const button = video.querySelector('.js-youtube--button');
+  const id = video.getAttribute('data-id');
 
-  return `https://www.youtube.com/embed/${id}${query}`;
+  events.on('click', video, () => {
+    const iframe = createIframe(id);
+
+    link.remove();
+    button.remove();
+    video.appendChild(iframe);
+  });
+
+  link.removeAttribute('href');
+  link.removeAttribute('target');
+  video.classList.add('youtube--enabled');
 }
 
-function addEvent(video, event) {
-  video[event] = () => {
-    video.contentWindow.postMessage(`{"event":"command","func":"${event}"}`, '*');
-  };
+function initYouTube() {
+  const videos = document.querySelectorAll('.js-youtube');
+
+  _.each(videos, (video) => {
+    setupVideo(video);
+  });
 }
 
 export default initYouTube;

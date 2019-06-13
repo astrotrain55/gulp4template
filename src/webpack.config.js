@@ -23,7 +23,7 @@ module.exports = {
     },
   },
 
-  mode: 'development',
+  mode: 'production',
 
   devtool: 'source-map',
 
@@ -33,12 +33,12 @@ module.exports = {
         enforce: 'pre',
         test: /\.js$/,
         exclude: /(node_modules|vendor)/,
-        loader: ['eslint-loader'],
+        loader: 'eslint-loader',
       },
       {
         test: /\.js$/,
         exclude: /(node_modules|vendor)/,
-        loader: ['babel-loader'],
+        loader: 'babel-loader',
       },
       {
         test: require.resolve('jquery'),
