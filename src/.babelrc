@@ -1,3 +1,6 @@
 {
-  presets: ["@babel/preset-env", "airbnb"]
+  presets: ["@babel/preset-env", "airbnb"],
+  plugins: [
+    ["@babel/plugin-transform-runtime"]
+  ]
 }
