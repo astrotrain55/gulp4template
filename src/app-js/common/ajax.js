@@ -1,4 +1,5 @@
 import axios from 'axios';
+import URLSearchParams from '@ungap/url-search-params';
 import _ from 'libs/lodash';
 
 
@@ -16,6 +17,7 @@ export default function (setup = {}) {
   config.responseType = (setup.type) ? setup.type : 'json';
 
   if (data.has(_.toUpper(config.method))) {
+    toFormData(setup);
     config.data = setup.data;
   } else {
     config.params = setup.data;
@@ -26,4 +28,15 @@ export default function (setup = {}) {
   }).catch((error) => {
     console.log(error);
   });
+}
+
+
+function toFormData(setup) {
+  let formData = new URLSearchParams();
+
+  _.each(setup.data, (item, key) => {
+    formData.append(key, item);
+  });
+
+  setup.data = formData;
 }

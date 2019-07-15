@@ -5,9 +5,8 @@ const nib  = require('nib'),
 module.exports = () => {
 
   $.gulp.task('stylus', () => {
-    return $.gulp.src(path.styl.src)
+    return $.gulp.src(path.styl.src, { sourcemaps: true })
       .pipe($.load.plumber())
-      .pipe($.load.sourcemaps.init())
       .pipe($.load.stylus({
         import: ['nib'],
         use: nib()
@@ -18,15 +17,12 @@ module.exports = () => {
         title: 'Stylus',
         message: "Error: <%= error.message %>"
       }))
-      .pipe($.load.autoprefixer({
-        browsers: ['last 3 versions']
-      }))
+      .pipe($.load.autoprefixer())
       .pipe($.load.csso())
       .pipe($.load.rename({
         basename: path.name.css
       }))
-      .pipe($.load.sourcemaps.write('.'))
-      .pipe($.gulp.dest(path.styl.dest))
+      .pipe($.gulp.dest(path.styl.dest, { sourcemaps: '.' }))
       .pipe($.sync.reload({
         stream: true
       }));

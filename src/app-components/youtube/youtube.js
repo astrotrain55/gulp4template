@@ -30,6 +30,14 @@ function createIframe(id) {
   return iframe;
 }
 
+function stopAllVideos() {
+  const videos = document.querySelectorAll('.js-youtube iframe');
+
+  videos.forEach(video => {
+    video.stopVideo();
+  });
+}
+
 function setupVideo(video) {
   const link = video.querySelector('.js-youtube--link');
   const button = video.querySelector('.js-youtube--button');
@@ -39,8 +47,10 @@ function setupVideo(video) {
     const iframe = createIframe(id);
 
     link.remove();
-    button.remove();
+    button.remove(); // почему-то при удалении кнопки при клике не на первый слайд слайдер откатывается к началу
     video.appendChild(iframe);
+
+    stopAllVideos();
   });
 
   link.removeAttribute('href');

@@ -39,22 +39,13 @@
 * Искать подробно ```npm run grep строка```
 
 ### Полезные пакеты, отсутствующие в сборке:
-* @ungap/url-search-params
-* fullpage.js
-* hc-sticky
 * ion-rangeslider
 * jquery-file-upload
 * jquery-mask-plugin
 * jquery-validation
 * jquery.mmenu
-* enquire.js
-* es6-promise
 * magnific-popup
 * masonry-layout
 * particles.js
 * progressbar.js
 * pure-swipe
-* stickybits
-* select2
-* whatwg-fetch
-* wowjs

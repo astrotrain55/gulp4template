@@ -27,10 +27,9 @@
     <link rel="apple-touch-icon" sizes="114x114" href="<?=SITE_TEMPLATE_PATH?>/apple-touch-icon-114x114.png">
     <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/vendor.min.css?v=<?=rand()?>">
     <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/template_styles.css?v=<?=rand()?>"><!--[if lt IE 9]>
-    <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/ie/ie.css">
-    <script src="<?=SITE_TEMPLATE_PATH?>/ie/html5shiv.min.js"></script>
-    <script src="<?=SITE_TEMPLATE_PATH?>/ie/respond.min.js"></script>
-    <script src="<?=SITE_TEMPLATE_PATH?>/ie/rem.min.js"></script><![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rem/1.3.4/js/rem.min.js"></script><![endif]-->
   </head>
   <body><?php require_once("../images/svg/symbols.svg"); ?>
     <div class="l-page" id="top">
@@ -51,7 +50,7 @@
               <div class="grid__item grid__item--12">
                 <div class="youtube js-youtube" data-id="4JS70KB9GS0"><a class="youtube__link js-youtube--link" target="_blank" href="https://youtu.be/4JS70KB9GS0">
                     <picture>
-                      <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/4JS70KB9GS0/maxresdefault.webp"/><img class="youtube__media" src="https://i.ytimg.com/vi/4JS70KB9GS0/maxresdefault.jpg" alt="Как вставить двадцать видео с Ютуба и не скачать слона"/>
+                      <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/4JS70KB9GS0/0.webp"/><img class="youtube__media" src="https://i.ytimg.com/vi/4JS70KB9GS0/0.jpg" alt="Как вставить двадцать видео с Ютуба и не скачать слона"/>
                     </picture></a>
                   <button class="youtube__button js-youtube--button" type="button" aria-label="Запустить видео">
                     <svg class="youtube__button-svg" viewBox="0 0 68 48">
@@ -64,7 +63,7 @@
               <div class="grid__item grid__item--12">
                 <div class="youtube js-youtube" data-id="4JS70KB9GS0"><a class="youtube__link js-youtube--link" target="_blank" href="https://youtu.be/4JS70KB9GS0">
                     <picture>
-                      <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/4JS70KB9GS0/maxresdefault.webp"/><img class="youtube__media" src="https://i.ytimg.com/vi/4JS70KB9GS0/maxresdefault.jpg" alt="Как вставить двадцать видео с Ютуба и не скачать слона"/>
+                      <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/4JS70KB9GS0/0.webp"/><img class="youtube__media" src="https://i.ytimg.com/vi/4JS70KB9GS0/0.jpg" alt="Как вставить двадцать видео с Ютуба и не скачать слона"/>
                     </picture></a>
                   <button class="youtube__button js-youtube--button" type="button" aria-label="Запустить видео">
                     <svg class="youtube__button-svg" viewBox="0 0 68 48">
