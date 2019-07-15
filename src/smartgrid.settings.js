@@ -7,7 +7,7 @@ var settings = {
   columns: 24,
   offset: '2%',
   container: {
-    maxWidth: '1180px',
+    maxWidth: '1920px',
     fields: '30px' /* side fields */
   },
   breakPoints: {

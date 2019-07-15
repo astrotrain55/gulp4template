@@ -1,9 +1,9 @@
 "use strict";
 
-require('./gulprc/paths.js');
+require('./paths.js');
 
 global.$ = {
-  tasks: require('./gulprc/tasks.js'),
+  tasks: require('./tasks.js'),
   fs: require('fs'),
   gulp: require('gulp'),
   load: require('gulp-load-plugins')(),
@@ -21,5 +21,4 @@ $.gulp.task('clear_cache', () => {
 $.gulp.task('default', $.gulp.series(
   $.gulp.parallel('pug', 'stylus', 'js'),
   $.gulp.parallel('serve', 'watch'),
-  $.gulp.parallel('ie')
 ));

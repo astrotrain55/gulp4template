@@ -27,10 +27,9 @@
     <link rel="apple-touch-icon" sizes="114x114" href="<?=SITE_TEMPLATE_PATH?>/apple-touch-icon-114x114.png">
     <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/vendor.min.css?v=<?=rand()?>">
     <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/template_styles.css?v=<?=rand()?>"><!--[if lt IE 9]>
-    <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/ie/ie.css">
-    <script src="<?=SITE_TEMPLATE_PATH?>/ie/html5shiv.min.js"></script>
-    <script src="<?=SITE_TEMPLATE_PATH?>/ie/respond.min.js"></script>
-    <script src="<?=SITE_TEMPLATE_PATH?>/ie/rem.min.js"></script><![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rem/1.3.4/js/rem.min.js"></script><![endif]-->
   </head>
   <body><?php require_once("../images/svg/symbols.svg"); ?>
     <div class="l-page main-page" id="top">

@@ -1,10 +1,9 @@
-const getNameProject = require('./getNameProject');
+const nameProject = require('./getNameProject')();
 
 
 global.path = {
-
   server: {
-    proxy: `127.0.0.1/${ getNameProject() }/php/`
+    proxy: `127.0.0.1/${ nameProject }/php/`
   },
 
   watch: {
@@ -17,7 +16,7 @@ global.path = {
     styl: [
       'app-components/**/*.styl',
       'app-stylus/**/*.styl',
-      '!app-stylus/+(libs|ie).styl'
+      '!app-stylus/libs.styl'
     ],
     js: [
       'app-js/**/*.js',
@@ -62,11 +61,4 @@ global.path = {
     sprite_png: 'sprite',
     sprite_styl: '_sprite.inc'
   },
-
-  ie: {
-    watch: 'app-stylus/ie.styl',
-    src: 'app-stylus/ie.styl',
-    dest: '../ie/'
-  }
-
 }
