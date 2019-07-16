@@ -7,6 +7,7 @@ module.exports = () => {
     $.gulp.watch(path.watch.js, $.gulp.series('js'));
     $.gulp.watch(path.watch.sprite, $.gulp.series('sprite'));
     $.gulp.watch(path.watch.svg, $.gulp.series('svg'));
+    $.gulp.watch(path.grid.settings, $.gulp.series('grid'));
   });
 
 };

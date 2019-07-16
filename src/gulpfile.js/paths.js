@@ -2,6 +2,11 @@ const nameProject = require('./getNameProject')();
 
 
 global.path = {
+  grid: {
+    settings: './smartgrid.settings.js',
+    output: 'app-stylus/',
+  },
+
   server: {
     proxy: `127.0.0.1/${ nameProject }/php/`
   },

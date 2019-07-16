@@ -1,5 +1,7 @@
 "use strict";
 
+const smartgrid = require('smart-grid');
+
 require('./paths.js');
 
 global.$ = {
@@ -14,8 +16,15 @@ $.tasks.forEach((task) => {
   require(task)();
 });
 
-$.gulp.task('clear_cache', () => {
+$.gulp.task('clear', () => {
   return $.load.cache.clearAll();
+});
+
+$.gulp.task('grid', (done) => {
+  delete require.cache[require.resolve(path.grid.settings)];
+  const settings = require(path.grid.settings);
+  smartgrid(path.grid.output, settings);
+  done();
 });
 
 $.gulp.task('default', $.gulp.series(

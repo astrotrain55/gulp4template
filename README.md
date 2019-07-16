@@ -19,6 +19,7 @@
   * **[jQuery](https://jquery.com/)**
 
 #### **[Style Guide](https://github.com/leonidlebedev/javascript-airbnb)**
+#### **[MATERIAL DESIGN](https://material.io/develop/web/)**
 
 ### Установка:
 * ```mkdir projectName```

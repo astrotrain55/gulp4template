@@ -32,7 +32,12 @@ module.exports = () => {
     return $.gulp.src(path.styl.vendor)
       .pipe($.load.plumber())
       .pipe($.load.stylus({
-        'include css': true
+        'include css': true,
+        compress: true,
+        rawDefine: { // aliases
+          node: path.resolve(__dirname, '..', '..', 'node_modules'),
+          vendor: path.resolve(__dirname, '..', '..', 'vendor')
+        }
       }))
       .on("error", $.load.notify.onError({
         title: 'CSS',
