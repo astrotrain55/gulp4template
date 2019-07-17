@@ -1,33 +1,47 @@
-"use strict";
-
-const smartgrid = require('smart-grid');
-
-require('./paths.js');
+'use strict';
 
 global.$ = {
-  tasks: require('./tasks.js'),
-  fs: require('fs'),
-  gulp: require('gulp'),
-  load: require('gulp-load-plugins')(),
-  sync: require('browser-sync').create()
+  sync: require('browser-sync').create(),
 };
 
-$.tasks.forEach((task) => {
-  require(task)();
-});
+const { series, parallel, watch } = require('gulp');
+const cache = require('gulp-cache');
+const route = require('./routes');
 
-$.gulp.task('clear', () => {
-  return $.load.cache.clearAll();
-});
+// tasks
+const php = require('./tasks/pug');
+const css = require('./tasks/stylus');
+const js = require('./tasks/js');
+const vendor = require('./tasks/vendor');
+const server = require('./tasks/server');
+const svg = require('./tasks/svg');
+const sprite = require('./tasks/sprite');
 
-$.gulp.task('grid', (done) => {
-  delete require.cache[require.resolve(path.grid.settings)];
-  const settings = require(path.grid.settings);
-  smartgrid(path.grid.output, settings);
+
+exports.default = series(
+  parallel(clear),
+  parallel(php, css, js, vendor, svg, sprite),
+  parallel(server, observer)
+);
+
+function clear() {
+  return cache.clearAll();
+}
+
+function grid(done) {
+  delete require.cache[require.resolve(route.grid.settings)];
+  const settings = require(route.grid.settings);
+  const smartgrid = require('smart-grid');
+  smartgrid(route.grid.output, settings);
   done();
-});
+}
 
-$.gulp.task('default', $.gulp.series(
-  $.gulp.parallel('pug', 'stylus', 'js'),
-  $.gulp.parallel('serve', 'watch'),
-));
+function observer() {
+  watch(route.watch.pug, php);
+  watch(route.watch.styl, css);
+  watch(route.watch.vendor, vendor);
+  watch(route.watch.js, js);
+  watch(route.watch.sprite, sprite);
+  watch(route.watch.svg, svg);
+  watch(route.grid.watch, grid);
+}

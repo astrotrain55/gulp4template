@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru-RU">
+<html>
   <head>
     <title>Проект</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <style>
       html,
       body,
@@ -35,7 +35,7 @@
       }
       li:before {
         counter-increment: counter;
-        content: counter(counter, decimal-leading-zero) ".";
+        content: counter(counter, decimal-leading-zero) ". ";
         color: #668a97;
       }
       a {
@@ -53,22 +53,14 @@
     <main>
       <section></section>
     </main>
-    <div class="js-main-template" type="text/x-mustache-template" hidden>
-      <ol>
-        {{#.}}
-        <li>
-          <a href="./php/{{link}}" data-number="{{number}}">{{title}}</a>
-        </li>
-        {{/.}}
-      </ol>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.min.js"></script>
     <script>
-      $.getJSON('./json/data.json', data => {
-        var e = $('.js-main-template').html();
-        var m = Mustache.render(e, data);
-        $('section').append(m);
+      fetch('./json/data.json').then(res => res.json()).then(pages => {
+        let m = pages.reduce((acc, item) => {
+          acc += `<li><a href="./php/${item.link}">${item.title}</a></li>`;
+          return acc;
+        }, '');
+
+        document.querySelector('section').innerHTML = `<ol>${m}</ol>`;
       });
     </script>
   </body>

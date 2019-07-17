@@ -7,11 +7,10 @@
   "description": "Стартовый шаблон для вёрстки",
   "scripts": {
     "go": "gulp",
-    "clear": "gulp clear",
-    "delete": "rimraf ./node_modules",
     "create": "node ./createModule",
-    "grep": "sh ./grep.sh full",
-    "list": "sh ./grep.sh list"
+    "delete": "rimraf ./node_modules",
+    "list": "sh ./grep.sh list",
+    "full": "sh ./grep.sh full"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
@@ -37,7 +36,6 @@
     "gulp-csscomb": "^3.0.8",
     "gulp-csso": "^3.0.1",
     "gulp-group-css-media-queries": "^1.2.2",
-    "gulp-load-plugins": "^1.5.0",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.0",
     "gulp-pug": "^4.0.1",
@@ -62,7 +60,6 @@
     "dialog-polyfill": "^0.5.0",
     "enquire.js": "^2.1.6",
     "eventslibjs": "^1.2.0",
-    "gulp-cheerio": "^0.6.3",
     "jquery": "^3.4.1",
     "lodash": "^4.17.11",
     "mobx": "^5.9.0",

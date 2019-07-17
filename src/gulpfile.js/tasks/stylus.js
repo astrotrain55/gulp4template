@@ -1,55 +1,39 @@
-const nib  = require('nib'),
-      gcmq = require('gulp-group-css-media-queries');
+const { src, dest } = require('gulp');
+const plumber = require('gulp-plumber');
+const stylus = require('gulp-stylus');
+const csscomb = require('gulp-csscomb');
+const notify = require('gulp-notify');
+const rename = require('gulp-rename');
+const autoprefixer = require('gulp-autoprefixer');
+const csso = require('gulp-csso');
+const gcmq = require('gulp-group-css-media-queries');
+
+const nib  = require('nib');
+const route = require('../routes');
 
 
-module.exports = () => {
+module.exports = function css() {
 
-  $.gulp.task('stylus', () => {
-    return $.gulp.src(path.styl.src, { sourcemaps: true })
-      .pipe($.load.plumber())
-      .pipe($.load.stylus({
-        import: ['nib'],
-        use: nib()
-      }))
-      .pipe(gcmq())
-      .pipe($.load.csscomb())
-      .on("error", $.load.notify.onError({
-        title: 'Stylus',
-        message: "Error: <%= error.message %>"
-      }))
-      .pipe($.load.autoprefixer())
-      .pipe($.load.csso())
-      .pipe($.load.rename({
-        basename: path.name.css
-      }))
-      .pipe($.gulp.dest(path.styl.dest, { sourcemaps: '.' }))
-      .pipe($.sync.reload({
-        stream: true
-      }));
-  });
-
-  $.gulp.task('vendor', () => {
-    return $.gulp.src(path.styl.vendor)
-      .pipe($.load.plumber())
-      .pipe($.load.stylus({
-        'include css': true,
-        compress: true,
-        rawDefine: { // aliases
-          node: path.resolve(__dirname, '..', '..', 'node_modules'),
-          vendor: path.resolve(__dirname, '..', '..', 'vendor')
-        }
-      }))
-      .on("error", $.load.notify.onError({
-        title: 'CSS',
-        message: "Error: <%= error.message %>"
-      }))
-      .pipe($.load.rename({
-        basename: path.name.vendor
-      }))
-      .pipe($.gulp.dest(path.styl.dest))
-      .pipe($.sync.reload({
-        stream: true
-      }));
-  });
+  return src(route.styl.src, { sourcemaps: true })
+    .pipe(plumber())
+    .pipe(stylus({
+      import: ['nib'],
+      use: nib()
+    }))
+    .pipe(gcmq())
+    .pipe(csscomb())
+    .on('error', notify.onError({
+      title: 'Stylus',
+      message: 'Error: <%= error.message %>'
+    }))
+    .pipe(autoprefixer())
+    .pipe(csso())
+    .pipe(rename({
+      basename: route.name.css
+    }))
+    .pipe(dest(route.styl.dest, { sourcemaps: '.' }))
+    .pipe($.sync.reload({
+      stream: true
+    }));
 
 };
