@@ -1,7 +1,13 @@
 const nameProject = require('./getNameProject')();
 
 
-global.path = {
+module.exports = {
+  grid: {
+    settings: '../smartgrid.settings',
+    watch: 'smartgrid.settings.js',
+    output: 'app-stylus'
+  },
+
   server: {
     proxy: `127.0.0.1/${ nameProject }/php/`
   },
@@ -50,6 +56,7 @@ global.path = {
   },
 
   svg: {
+    del: '../images/svg/symbols.svg',
     src: 'svg/**/*.svg',
     dest: '../'
   },
@@ -61,4 +68,4 @@ global.path = {
     sprite_png: 'sprite',
     sprite_styl: '_sprite.inc'
   },
-}
+};

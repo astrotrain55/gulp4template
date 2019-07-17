@@ -1,6 +1,4 @@
-var smartgrid = require('smart-grid');
-
-var settings = {
+module.exports = {
   mobileFirst: false,
   filename: "_smartgrid.inc",
   outputStyle: 'styl',
@@ -34,5 +32,3 @@ var settings = {
   },
   tab: "  "
 };
-
-smartgrid('./app-stylus', settings);

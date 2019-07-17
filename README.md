@@ -19,6 +19,7 @@
   * **[jQuery](https://jquery.com/)**
 
 #### **[Style Guide](https://github.com/leonidlebedev/javascript-airbnb)**
+#### **[MATERIAL DESIGN](https://material.io/develop/web/)**
 
 ### Установка:
 * ```mkdir projectName```
@@ -31,12 +32,10 @@
 ### Команды:
 * ```cd ./src```
 * Запустить проект ```npm run go```
-* Сгенерировать сетку ```npm run grid```
 * Создать компоненты ```npm run create компонент1 компонент2 ... компонентN```
 * Удалить node_modules ```npm run delete```
-* Очистить кэш ```npm run clear```
 * Искать списком ```npm run list строка```
-* Искать подробно ```npm run grep строка```
+* Искать подробно ```npm run full строка```
 
 ### Полезные пакеты, отсутствующие в сборке:
 * ion-rangeslider

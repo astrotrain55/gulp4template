@@ -1,33 +1,28 @@
-  const del = require('del'),
-spritesmith = require('gulp.spritesmith');
+const { src, dest } = require('gulp');
+const spritesmith = require('gulp.spritesmith');
+
+const del = require('del');
+const route = require('../routes');
 
 
-module.exports = () => {
+module.exports = function sprite(done) {
+  del.sync(route.sprite.del, {force: true});
 
-  $.gulp.task('cleansprite', (done) => {
-    del.sync(path.sprite.del, {force: true});
-    done();
-  });
+  const spriteData = src(route.watch.sprite)
+    .pipe(spritesmith({
+      imgName: route.name.sprite_png + '.png',
+      cssName: route.name.sprite_styl + '.styl',
+      padding: 0,
+      cssFormat: 'stylus',
+      algorithm: 'binary-tree',
+      cssTemplate: 'stylus.template.mustache',
+      cssVarMap: (sprite) => {
+        sprite.name = 's-' + sprite.name;
+      }
+    }));
 
-  $.gulp.task('spritemade', (done) => {
-    var spriteData =
-      $.gulp.src(path.watch.sprite)
-      .pipe(spritesmith({
-        imgName: path.name.sprite_png + '.png',
-        cssName: path.name.sprite_styl + '.styl',
-        padding: 0,
-        cssFormat: 'stylus',
-        algorithm: 'binary-tree',
-        cssTemplate: 'stylus.template.mustache',
-        cssVarMap: (sprite) => {
-          sprite.name = 's-' + sprite.name;
-        }
-      }));
-    spriteData.img.pipe($.gulp.dest(path.sprite.png)); // путь, куда сохраняем картинку
-    spriteData.css.pipe($.gulp.dest(path.sprite.styl)); // путь, куда сохраняем стили
-    done();
-  });
+  spriteData.img.pipe(dest(route.sprite.png)); // путь, куда сохраняем картинку
+  spriteData.css.pipe(dest(route.sprite.styl)); // путь, куда сохраняем стили
 
-  $.gulp.task('sprite', $.gulp.series('cleansprite', 'spritemade'));
-
-};
+  done();
+}
