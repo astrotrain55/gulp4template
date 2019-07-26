@@ -8,7 +8,10 @@
     "jquery": true
   },
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "lodash/preferred-alias": [2, {
+      "ignoreMethods": ["each"]
+    }]
   },
   "parserOptions": {
     "ecmaVersion": 6,

@@ -6,6 +6,16 @@ import _ from 'libs/lodash';
 axios.defaults.baseURL = '';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
+function toFormData(data) {
+  const formData = new URLSearchParams();
+
+  _.each(data, (item, key) => {
+    formData.append(key, item);
+  });
+
+  return formData;
+}
+
 export default function (setup = {}) {
   const success = (response) => { console.log(response); };
   const callback = setup.success || success;
@@ -14,11 +24,9 @@ export default function (setup = {}) {
   const config = {};
   config.url = (setup.action) ? setup.action : window.location.href;
   config.method = (setup.method) ? setup.method : 'GET';
-  config.responseType = (setup.type) ? setup.type : 'json';
 
   if (data.has(_.toUpper(config.method))) {
-    toFormData(setup);
-    config.data = setup.data;
+    config.data = toFormData(setup.data);
   } else {
     config.params = setup.data;
   }
@@ -28,15 +36,4 @@ export default function (setup = {}) {
   }).catch((error) => {
     console.log(error);
   });
-}
-
-
-function toFormData(setup) {
-  let formData = new URLSearchParams();
-
-  _.each(setup.data, (item, key) => {
-    formData.append(key, item);
-  });
-
-  setup.data = formData;
 }

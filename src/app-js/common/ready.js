@@ -1,4 +1,4 @@
-import events from 'eventslibjs';
+import events from 'libs/events';
 
 
 export default (fn) => {

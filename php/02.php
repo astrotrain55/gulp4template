@@ -46,8 +46,8 @@
         </header>
         <main class="l-content">
           <div class="l-wrapper">
-            <div class="grid">
-              <div class="grid__item grid__item--12">
+            <div class="l-grid">
+              <div class="l-grid__item l-grid__item--12">
                 <div class="youtube js-youtube" data-id="4JS70KB9GS0"><a class="youtube__link js-youtube--link" target="_blank" href="https://youtu.be/4JS70KB9GS0">
                     <picture>
                       <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/4JS70KB9GS0/0.webp"/><img class="youtube__media" src="https://i.ytimg.com/vi/4JS70KB9GS0/0.jpg" alt="Как вставить двадцать видео с Ютуба и не скачать слона"/>
@@ -60,7 +60,7 @@
                   </button>
                 </div>
               </div>
-              <div class="grid__item grid__item--12">
+              <div class="l-grid__item l-grid__item--12">
                 <div class="youtube js-youtube" data-id="4JS70KB9GS0"><a class="youtube__link js-youtube--link" target="_blank" href="https://youtu.be/4JS70KB9GS0">
                     <picture>
                       <source type="image/webp" srcset="https://i.ytimg.com/vi_webp/4JS70KB9GS0/0.webp"/><img class="youtube__media" src="https://i.ytimg.com/vi/4JS70KB9GS0/0.jpg" alt="Как вставить двадцать видео с Ютуба и не скачать слона"/>
@@ -87,7 +87,7 @@
       </footer>
     </div>
     <div id="templates">
-      <script class="js-templates" type="text/x-template"><ul>
+      <script type="text/template" data-name="template"><ul>
   <li><%= people.join('</li><li>') %></li>
 </ul>
 
