@@ -33,7 +33,7 @@ function createIframe(id) {
 function stopAllVideos() {
   const videos = document.querySelectorAll('.js-youtube iframe');
 
-  videos.forEach(video => {
+  _.each(videos, (video) => {
     video.stopVideo();
   });
 }
@@ -46,8 +46,10 @@ function setupVideo(video) {
   events.on('click', video, () => {
     const iframe = createIframe(id);
 
+    // почему-то при удалении кнопки при клике не на первый слайд слайдер откатывается к началу
+    button.remove();
+
     link.remove();
-    button.remove(); // почему-то при удалении кнопки при клике не на первый слайд слайдер откатывается к началу
     video.appendChild(iframe);
 
     stopAllVideos();

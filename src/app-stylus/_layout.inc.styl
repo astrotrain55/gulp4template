@@ -1,0 +1,32 @@
+reset()
+
+
+html,
+body,
+.l-page
+  height 100% // `Always on the bottom` Footer
+
+.l-page
+  display flex // `Always on the bottom` Footer
+  flex-direction column // `Always on the bottom` Footer
+
+.l-container
+  flex-grow 1 // `Always on the bottom` Footer
+
+.l-wrapper
+  wrapper()
+  height 100%
+  position relative
+
+.l-full
+  @extend .l-wrapper
+  max-width 192rem
+
+// smartgrid
+.l-grid
+  row-flex()
+  &__item
+    col()
+    for $n in (1..24)
+      &--{$n}
+        col-size($n)

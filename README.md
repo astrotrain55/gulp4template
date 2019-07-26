@@ -58,9 +58,9 @@ npm run full строка
 * jquery-file-upload
 * jquery-mask-plugin
 * jquery-validation
-* jquery.mmenu
 * magnific-popup
 * masonry-layout
+* mmenu-js
 * particles.js
 * progressbar.js
 * pure-swipe

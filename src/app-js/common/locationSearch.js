@@ -1,21 +1,23 @@
-function createStringLocationSearch(obj = {} /*, string address */) {
-  const array = [];
-  const address = (typeof arguments[1] === 'string' && arguments[1]) ? arguments[1] : '';
+// deprecated
+// https://developer.mozilla.org/ru/docs/Web/API/URLSearchParams
 
-  for (let key in obj) {
-    array.push(`${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`);
-  }
+import _ from 'libs/lodash';
+
+
+function createStringLocationSearch(obj = {}, stringAddress = '') {
+  const address = (_.isString(stringAddress) && stringAddress) ? stringAddress : '';
+
+  const array = _.map(obj, (item, key) => `${encodeURIComponent(key)}=${encodeURIComponent(item)}`);
 
   return `${address}?${array.join('&')}`;
 }
 
-function createObjLocationSearch(/* string params */) {
+function createObjLocationSearch(stringUrl) {
   let src = window.location.search;
 
-  if (arguments.length) {
+  if (stringUrl) {
     src = '';
-    const stringUrl = arguments[0];
-    if (typeof stringUrl === 'string' && stringUrl) {
+    if (_.isString(stringUrl) && stringUrl) {
       const index = stringUrl.indexOf('?');
       if (index !== -1) src = stringUrl.substr(index);
     }

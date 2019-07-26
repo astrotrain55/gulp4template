@@ -1,7 +1,7 @@
-import events from 'eventslibjs';
+import events from 'libs/events';
 import Ajax from 'root/common/ajax';
 import ready from 'root/common/ready';
-import render from 'root/common/render';
+import tpl from 'root/common/tpl';
 import separationRanks from 'root/common/separationRanks';
 import initYouTube from 'components/youtube/youtube';
 import { detect as ie } from 'root/common/detectIE';
@@ -28,8 +28,9 @@ ready(() => {
   console.log(locationSearch);
   console.log(createStringLocationSearch(locationSearch));
   console.log(events.get());
-  console.log(render('.js-templates', {
+  console.log(tpl.render({
     people: ['html', 'css', 'javascript'],
-  }));
+  }, 'template'));
+  console.log(tpl.get('template'));
   console.log(`Microsoft: ${ie()}`);
 });
