@@ -5,7 +5,7 @@ global.$ = {
 };
 
 const { series, parallel, watch } = require('gulp');
-const cache = require('gulp-cache');
+const { clearAll } = require('gulp-cache');
 const route = require('./routes');
 
 // tasks
@@ -17,16 +17,11 @@ const server = require('./tasks/server');
 const svg = require('./tasks/svg');
 const sprite = require('./tasks/sprite');
 
-
 exports.default = series(
-  parallel(clear),
+  parallel(clearAll),
   parallel(php, css, js, vendor, svg, sprite),
   parallel(server, observer)
 );
-
-function clear() {
-  return cache.clearAll();
-}
 
 function grid(done) {
   delete require.cache[require.resolve(route.grid.settings)];

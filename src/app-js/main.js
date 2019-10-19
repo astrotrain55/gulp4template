@@ -1,36 +1,28 @@
-import events from 'libs/events';
-import Ajax from 'root/common/ajax';
-import ready from 'root/common/ready';
-import tpl from 'root/common/tpl';
-import separationRanks from 'root/common/separationRanks';
+import { Ajax, e } from 'libs';
+import $ from 'common/tools';
+import tpl from 'components/templates/templates';
 import initYouTube from 'components/youtube/youtube';
-import { detect as ie } from 'root/common/detectIE';
-import { createObjLocationSearch, createStringLocationSearch } from 'root/common/locationSearch';
 
-
-ready(() => {
+$.ready(() => {
   Ajax({
-    action: '../ajax/',
-    method: 'POST',
-    data: {
-      request: 'axios',
-    },
-    success: (json) => {
-      console.log(json);
-    },
+    data: { request: 'axios' },
+  }, (json) => {
+    console.log(json);
+  });
+
+  Ajax({
+    method: 'get',
+    url: 'https://jsonplaceholder.typicode.com/todos/1',
+  }, (json) => {
+    document.body.insertAdjacentHTML('beforeend', tpl.render(json, 'template'));
   });
 
   initYouTube();
 
-  separationRanks.init('.js-ranks');
-
-  const locationSearch = createObjLocationSearch('./?name=es6&extension=js');
-  console.log(locationSearch);
-  console.log(createStringLocationSearch(locationSearch));
-  console.log(events.get());
-  console.log(tpl.render({
-    people: ['html', 'css', 'javascript'],
-  }, 'template'));
-  console.log(tpl.get('template'));
-  console.log(`Microsoft: ${ie()}`);
+  console.log(e.get());
+  console.log($.getSearch('topic', '?q=URLUtils.searchParams&topic=api&topic=webdev'));
+  console.log($.strSearch({
+    q: 'URLUtils.searchParams',
+    topic: 'webdev',
+  }));
 });

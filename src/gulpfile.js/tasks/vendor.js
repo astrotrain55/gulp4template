@@ -1,12 +1,10 @@
 const { src, dest } = require('gulp');
+const { onError } = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const stylus = require('gulp-stylus');
-const notify = require('gulp-notify');
 const rename = require('gulp-rename');
-
-const path = require('path');
+const { resolve } = require('path');
 const route = require('../routes');
-
 
 module.exports = function vendor() {
   return src(route.styl.vendor)
@@ -15,11 +13,11 @@ module.exports = function vendor() {
       'include css': true,
       compress: true,
       rawDefine: { // aliases
-        node: path.resolve(__dirname, '..', '..', 'node_modules'),
-        vendor: path.resolve(__dirname, '..', '..', 'vendor')
+        node: resolve(__dirname, '..', '..', 'node_modules'),
+        vendor: resolve(__dirname, '..', '..', 'vendor')
       }
     }))
-    .on("error", notify.onError({
+    .on("error", onError({
       title: 'CSS',
       message: "Error: <%= error.message %>"
     }))

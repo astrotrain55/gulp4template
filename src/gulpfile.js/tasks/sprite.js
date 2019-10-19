@@ -1,9 +1,7 @@
 const { src, dest } = require('gulp');
 const spritesmith = require('gulp.spritesmith');
-
 const del = require('del');
 const route = require('../routes');
-
 
 module.exports = function sprite(done) {
   del.sync(route.sprite.del, {force: true});

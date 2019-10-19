@@ -7,9 +7,8 @@ const replace = require('gulp-replace');
 const del = require('del');
 const route = require('../routes');
 
-
 module.exports = function svg() {
-  del.sync(route.svg.del, {force: true});
+  del.sync(route.svg.del, { force: true });
 
   return src(route.svg.src)
     .pipe(svgmin({
@@ -24,7 +23,7 @@ module.exports = function svg() {
         $('[style]').removeAttr('style');
         $('style').remove();
       },
-      parserOptions: {xmlMode: true}
+      parserOptions: { xmlMode: true }
     }))
     .pipe(replace('&gt;', '>')) // профилактика после cheerio
     .pipe(sprite({

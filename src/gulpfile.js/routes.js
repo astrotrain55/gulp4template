@@ -1,6 +1,5 @@
 const nameProject = require('./getNameProject')();
 
-
 module.exports = {
   grid: {
     settings: '../smartgrid.settings',

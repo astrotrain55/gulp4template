@@ -1,6 +1,5 @@
-import _ from 'libs/lodash';
-import events from 'eventslibjs';
-
+import { e } from 'libs';
+import $ from 'common/tools';
 
 function addEvent(iframe, event) {
   const video = iframe;
@@ -31,7 +30,7 @@ function createIframe(id) {
 }
 
 function stopAllVideos() {
-  const videos = document.querySelectorAll('.js-youtube iframe');
+  const videos = $.all('.js-youtube iframe');
 
   _.each(videos, (video) => {
     video.stopVideo();
@@ -39,11 +38,11 @@ function stopAllVideos() {
 }
 
 function setupVideo(video) {
-  const link = video.querySelector('.js-youtube--link');
-  const button = video.querySelector('.js-youtube--button');
+  const link = $.el('.js-youtube--link', video);
+  const button = $.el('.js-youtube--button', video);
   const id = video.getAttribute('data-id');
 
-  events.on('click', video, () => {
+  e.on('click', video, () => {
     const iframe = createIframe(id);
 
     // почему-то при удалении кнопки при клике не на первый слайд слайдер откатывается к началу
@@ -61,7 +60,7 @@ function setupVideo(video) {
 }
 
 function initYouTube() {
-  const videos = document.querySelectorAll('.js-youtube');
+  const videos = $.all('.js-youtube');
 
   _.each(videos, (video) => {
     setupVideo(video);

@@ -1,17 +1,16 @@
-import _ from 'libs/lodash';
-
+import $ from 'common/tools';
 
 class Tpl {
   constructor() {
     this.private = {
-      templates: document.querySelector('#templates'),
+      templates: $.el('#templates'),
     };
   }
 
   get(name) {
     let markup = '';
     if (_.isString(name) && Boolean(name)) {
-      const el = this.private.templates.querySelector(`[type="text/template"][data-name="${name}"]`);
+      const el = $.el(`[title="${name}"]`, this.private.templates);
       markup = _.trim(el.textContent);
     }
     return markup;

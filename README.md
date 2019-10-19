@@ -51,6 +51,10 @@ npm run list строка
 
 # Искать подробно:
 npm run full строка
+
+# https://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc
+# При ошибке Error: watch data ENOSPC выполнить команду
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
 #### Полезные пакеты, отсутствующие в сборке:

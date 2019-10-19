@@ -31,24 +31,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rem/1.3.4/js/rem.min.js"></script><![endif]-->
   </head>
-  <body><?php require_once("../images/svg/symbols.svg"); ?>
+  <body style="height:3100px;"><?php require_once("../images/svg/symbols.svg"); ?>
     <div class="l-page" id="top">
       <div class="l-container">
         <header class="header">
           <div class="l-wrapper">
             <nav>
               <ul>
-                <li><a href="index.php">Главная страница</a></li>
-                <li><a href="02.php">Внутренняя страница</a></li>
+                <li><a href="index.php">
+                    <button>Главная страница</button></a></li>
+                <li><a href="02.php">
+                    <button>Внутренняя страница</button></a></li>
+                <li><a href="#footer">
+                    <button>Вниз</button></a></li>
               </ul>
             </nav>
           </div>
         </header>
         <main class="l-content">
-          <div class="scroll-top-test" style="height:3100px;"></div>
         </main>
       </div>
-      <footer class="footer">
+      <footer class="footer" id="footer">
         <div class="l-wrapper"></div><a class="scroll-top" href="#top">
           <button type="button">
             <svg class="icon icon-arrow-up scroll-top__icon">
@@ -58,8 +61,8 @@
       </footer>
     </div>
     <div id="templates">
-      <script type="text/template" data-name="template"><ul>
-  <li><%= people.join('</li><li>') %></li>
+      <script type="text/html" title="template"><ul>
+  <li><%= title %></li>
 </ul>
 
       </script>
