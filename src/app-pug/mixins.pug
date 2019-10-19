@@ -2,3 +2,6 @@ mixin svg(name)
   svg.icon(class=`icon-${name}`)&attributes(attributes)
     use(xlink:href=`#${name}`)
       //- ../images/svg/symbols.svg
+
+mixin img(src, alt = 'picture')
+  img(src=src, alt=alt)&attributes(attributes)

@@ -1,19 +1,16 @@
 const { src, dest } = require('gulp');
+const { onError } = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const stylus = require('gulp-stylus');
+const gcmq = require('gulp-group-css-media-queries');
 const csscomb = require('gulp-csscomb');
-const notify = require('gulp-notify');
-const rename = require('gulp-rename');
 const autoprefixer = require('gulp-autoprefixer');
 const csso = require('gulp-csso');
-const gcmq = require('gulp-group-css-media-queries');
-
+const rename = require('gulp-rename');
 const nib  = require('nib');
 const route = require('../routes');
 
-
 module.exports = function css() {
-
   return src(route.styl.src, { sourcemaps: true })
     .pipe(plumber())
     .pipe(stylus({
@@ -22,7 +19,7 @@ module.exports = function css() {
     }))
     .pipe(gcmq())
     .pipe(csscomb())
-    .on('error', notify.onError({
+    .on('error', onError({
       title: 'Stylus',
       message: 'Error: <%= error.message %>'
     }))
@@ -35,5 +32,4 @@ module.exports = function css() {
     .pipe($.sync.reload({
       stream: true
     }));
-
 };

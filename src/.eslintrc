@@ -9,6 +9,8 @@
   },
   "rules": {
     "no-console": "off",
+    "consistent-return": 0,
+    "no-param-reassign": 0,
     "lodash/preferred-alias": [2, {
       "ignoreMethods": ["each"]
     }]
@@ -16,6 +18,9 @@
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"
+  },
+  "globals": {
+    "_": true
   },
   "settings": {
     "lodash": {
@@ -27,7 +32,7 @@
       },
       "alias": [
         ["libs", "./app-js/libs/"],
-        ["store", "./app-js/store/"],
+        ["common", "./app-js/common/"],
         ["root", "./app-js/"],
         ["components", "./app-components/"],
         ["vendor", "./vendor/"]

@@ -1,6 +1,4 @@
 import events from 'eventslibjs';
-import _ from 'libs/lodash';
-
 
 function wrapper(name, event, target, fn) {
   events[name](event, target, (e) => {

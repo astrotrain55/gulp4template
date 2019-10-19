@@ -1,3 +1,3 @@
 <ul>
-  <li><%= people.join('</li><li>') %></li>
+  <li><%= title %></li>
 </ul>

@@ -2,9 +2,12 @@ html
   font-size 62.5% // 10px
 
 body
+  text-rendering optimizeSpeed
+  scroll-behavior smooth
   font-family mainFont
   font-size 1.6rem // 16px
   min-width 32rem
+  min-height 100vh
   line-height 1.2
   overflow-x hidden
   &.b-popup-open
@@ -16,11 +19,11 @@ body
 
 
 .l-page
-  a
+  a[class]
     text-decoration none
     color inherit
 
-  button
+  button[class]
     font-family inherit
     font-size inherit
     font-weight inherit
@@ -30,7 +33,8 @@ body
     padding 0
     noOutline()
 
-  img
+  img[class]
+    display block
     max-width 100%
     height auto
 
@@ -43,3 +47,10 @@ body
   .hidden
     opacity 0
     visibility hidden
+
+  *
+    @media (prefers-reduced-motion: reduce)
+      scroll-behavior auto !important
+      animation-duration .01ms !important
+      transition-duration .01ms !important
+      animation-iteration-count 1 !important

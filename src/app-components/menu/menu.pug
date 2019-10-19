@@ -1,9 +1,12 @@
 mixin menuTop(name, link)
   li
-    a(href=link) #{name}
+    a(href=link)
+      button #{name}
 
 mixin menu()
   nav
     ul
       each link, name in menu.top
         +menuTop(name, link)
+      if(block)
+        block
