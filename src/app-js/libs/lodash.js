@@ -4,6 +4,7 @@ import reduce from 'lodash/reduce';
 import replace from 'lodash/replace';
 import template from 'lodash/template';
 import toUpper from 'lodash/toUpper';
+import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
 import assign from 'lodash/assign';
 import trim from 'lodash/trim';
@@ -18,6 +19,7 @@ export default {
   replace,
   template,
   toUpper,
+  isFunction,
   isString,
   assign,
   trim,

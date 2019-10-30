@@ -8,8 +8,16 @@ function wrapper(name, event, target, fn) {
 }
 
 export default {
-  on: (...args) => { wrapper('on', ...args); },
-  once: (...args) => { wrapper('once', ...args); },
+  on(...args) { wrapper('on', ...args); },
+
+  once(...args) { wrapper('once', ...args); },
+
   off: events.off,
+
   get: events.get,
+
+  emit(name, el = document, params = {}) {
+    const event = new CustomEvent(name, { detail: params });
+    el.dispatchEvent(event);
+  },
 };

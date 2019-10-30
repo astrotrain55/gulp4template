@@ -21,23 +21,23 @@ export default {
     }
   },
 
-  setSearch(key, name, str = window.location.search) {
-    return new URLSearchParams(str).set(key, name);
+  getScrollbarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth;
   },
 
-  getSearch(key, str = window.location.search) {
-    return new URLSearchParams(str).get(key);
-  },
-
-  delSearch(key, str = window.location.search) {
-    return new URLSearchParams(str).del(key);
-  },
-
-  hasSearch(key, str = window.location.search) {
-    return new URLSearchParams(str).has(key);
+  getSearch(str = window.location.search) {
+    return new URLSearchParams(str);
   },
 
   strSearch(obj) {
     return new URLSearchParams(obj).toString();
+  },
+
+  formatDateTime(options = {}, date = new Date()) {
+    return new Intl.DateTimeFormat('ru', options).format(date);
+  },
+
+  toPartsDateTime(options = {}, date = new Date()) {
+    return new Intl.DateTimeFormat('ru', options).formatToParts(date);
   },
 };

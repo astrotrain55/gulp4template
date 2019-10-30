@@ -1,70 +1,79 @@
 import { e } from 'libs';
 import $ from 'common/tools';
 
-function addEvent(iframe, event) {
-  const video = iframe;
-  video[event] = () => {
-    video.contentWindow.postMessage(`{"event":"command","func":"${event}"}`, '*');
-  };
+class YouTube {
+  constructor() {
+    this.list = [];
+    this.src = 'https://www.youtube.com/iframe_api';
+    this.iframe = '<i class="youtube__media js-youtube-api"></i>';
+    this.params = {
+      autoplay: 1,
+      showinfo: 0,
+      rel: 0,
+    };
+  }
+
+  init() {
+    const videos = $.all('.js-youtube');
+
+    if (!videos.length) return;
+
+    this.addJs();
+    window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady.bind(this, videos);
+  }
+
+  setPlayer(el) {
+    el.innerHTML = this.iframe;
+    const player = $.el('.js-youtube-api', el);
+    const videoId = el.getAttribute('data-id');
+
+    new window.YT.Player(player, { // eslint-disable-line no-new
+      videoId,
+      playerVars: this.params,
+      events: {
+        onReady: this.onReady.bind(this),
+        onStateChange: this.onStateChange.bind(this),
+      },
+    });
+  }
+
+  onReady(event) {
+    this.list.push(event.target);
+  }
+
+  onStateChange(event) {
+    if (event.data !== window.YT.PlayerState.PLAYING) return;
+
+    _.each(this.list, (video) => {
+      if (event.target !== video) video.stopVideo();
+    });
+  }
+
+  onYouTubeIframeAPIReady(videos) {
+    _.each(videos, (video) => {
+      this.setupVideo(video);
+    });
+  }
+
+  setupVideo(video) {
+    const link = $.el('.js-youtube--link', video);
+    link.removeAttribute('href');
+    link.removeAttribute('target');
+    video.classList.add('youtube--enabled');
+
+    e.once('click', video, () => {
+      this.setPlayer(video);
+    });
+  }
+
+  addJs() {
+    const firstScript = $.el('script');
+    const script = document.createElement('script');
+    script.src = this.src;
+    firstScript.parentNode.insertBefore(script, firstScript);
+  }
 }
 
-function generateURL(id) {
-  const query = '?rel=0&showinfo=0&autoplay=1&enablejsapi=1';
-  return `https://www.youtube.com/embed/${id}${query}`;
-}
+const youtube = new YouTube();
 
-function createIframe(id) {
-  const iframe = document.createElement('iframe');
-
-  iframe.setAttribute('allowfullscreen', '');
-  iframe.setAttribute('allow', 'autoplay');
-  iframe.setAttribute('src', generateURL(id));
-  iframe.classList.add('youtube__media');
-  iframe.classList.add('js-youtube-api');
-
-  addEvent(iframe, 'playVideo');
-  addEvent(iframe, 'pauseVideo');
-  addEvent(iframe, 'stopVideo');
-
-  return iframe;
-}
-
-function stopAllVideos() {
-  const videos = $.all('.js-youtube iframe');
-
-  _.each(videos, (video) => {
-    video.stopVideo();
-  });
-}
-
-function setupVideo(video) {
-  const link = $.el('.js-youtube--link', video);
-  const button = $.el('.js-youtube--button', video);
-  const id = video.getAttribute('data-id');
-
-  e.on('click', video, () => {
-    const iframe = createIframe(id);
-
-    // почему-то при удалении кнопки при клике не на первый слайд слайдер откатывается к началу
-    button.remove();
-
-    link.remove();
-    video.appendChild(iframe);
-
-    stopAllVideos();
-  });
-
-  link.removeAttribute('href');
-  link.removeAttribute('target');
-  video.classList.add('youtube--enabled');
-}
-
-function initYouTube() {
-  const videos = $.all('.js-youtube');
-
-  _.each(videos, (video) => {
-    setupVideo(video);
-  });
-}
-
-export default initYouTube;
+export default youtube;
