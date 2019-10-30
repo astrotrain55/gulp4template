@@ -55,6 +55,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.5",
+    "@ungap/custom-event": "^0.2.0",
+    "@ungap/json": "^0.1.0",
+    "@ungap/url-search-params": "^0.1.2",
     "axios": "^0.18.0",
     "dialog-polyfill": "^0.5.0",
     "eventslibjs": "^1.2.0",
