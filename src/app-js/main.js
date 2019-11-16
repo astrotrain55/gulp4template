@@ -9,15 +9,14 @@ $.ready(() => {
   console.log(store.total);
 
   Ajax({
+    method: 'get',
+    params: { req: 'params' },
     data: { request: 'axios' },
-  }, (json) => {
-    console.log(json);
-  });
-
-  Ajax({
+  }, {
     method: 'get',
     url: 'https://jsonplaceholder.typicode.com/todos/1',
-  }, (json) => {
+  }).then(([local, json]) => {
+    console.log(local);
     document.body.insertAdjacentHTML('beforeend', tpl.render(json, 'template'));
   });
 

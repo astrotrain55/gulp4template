@@ -18,7 +18,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use((config) => {
   if (config.method === 'get' && isData(config.data)) {
-    config.params = config.data;
+    config.params = _.assign((config.params || {}), config.data);
   }
 
   return config;
@@ -26,8 +26,5 @@ instance.interceptors.request.use((config) => {
 
 instance.interceptors.response.use(({ data }) => data, resError);
 
-export default (data, fn) => {
-  instance(data).then((res) => {
-    fn(res);
-  });
-};
+export default (...args) => axios.all(_.map(args, req => instance(req)))
+  .then(axios.spread((...res) => res));
