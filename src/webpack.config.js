@@ -1,5 +1,5 @@
-const webpack = require('webpack');
-const path = require('path');
+const { ProvidePlugin } = require('webpack');
+const { resolve } = require('path');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -57,11 +57,11 @@ module.exports = {
 
   resolve: {
     alias: {
-      libs: path.resolve(__dirname, 'app-js', 'libs'),
-      common: path.resolve(__dirname, 'app-js', 'common'),
-      root: path.resolve(__dirname, 'app-js'),
-      components: path.resolve(__dirname, 'app-components'),
-      vendor: path.resolve(__dirname, 'vendor'),
+      libs: resolve(__dirname, 'app-js', 'libs'),
+      common: resolve(__dirname, 'app-js', 'common'),
+      root: resolve(__dirname, 'app-js'),
+      components: resolve(__dirname, 'app-components'),
+      vendor: resolve(__dirname, 'vendor'),
     },
   },
 
@@ -74,10 +74,10 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.ProvidePlugin({
+    new ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-      _: [path.resolve(__dirname, 'app-js', 'libs', 'lodash.js'), 'default']
+      _: [resolve(__dirname, 'app-js', 'libs', 'lodash.js'), 'default']
     }),
     new CircularDependencyPlugin({
       // exclude detection of files based on a RegExp
