@@ -20,7 +20,8 @@
     "sourceType": "module"
   },
   "globals": {
-    "_": true
+    "_": true,
+    "ev": true
   },
   "settings": {
     "lodash": {

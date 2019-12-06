@@ -1,4 +1,4 @@
-import { Ajax, e } from 'libs';
+import { Ajax, scroll } from 'libs';
 import $ from 'common/tools';
 import store from 'root/store';
 import tpl from 'components/templates/templates';
@@ -9,24 +9,29 @@ $.ready(() => {
   console.log(store.total);
 
   Ajax({
-    method: 'get',
+    method: 'post',
     params: { req: 'params' },
-    data: { request: 'axios' },
+    data: {
+      request: {
+        axios: true,
+      },
+    },
   }, {
     method: 'get',
     url: 'https://jsonplaceholder.typicode.com/todos/1',
-  }).then(([local, json]) => {
+  }, (local, json) => {
     console.log(local);
     document.body.insertAdjacentHTML('beforeend', tpl.render(json, 'template'));
   });
 
-  e.once('custom:event', document, () => {
+  ev.once('custom:event', document, () => {
     console.log('Event: custom:event');
   });
 
-  e.emit('custom:event');
+  ev.emit('custom:event');
 
-  console.log(e.get());
+  console.log(scroll);
+  console.log(ev.get());
   console.log($.getSearch('?q=URLUtils.searchParams&topic=api&topic=webdev').get('q'));
   console.log($.strSearch({
     q: 'URLUtils.searchParams',

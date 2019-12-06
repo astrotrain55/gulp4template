@@ -1,4 +1,5 @@
 import axios from 'axios';
+import qs from 'qs';
 
 const isData = data => data && _.size(data);
 const resError = e => Promise.reject(e);
@@ -8,10 +9,7 @@ const instance = axios.create({
   method: 'post',
   transformRequest(data) {
     if (isData(data)) {
-      return _.reduce(data, (total, item, key) => {
-        total.append(key, item);
-        return total;
-      }, new FormData());
+      return qs.stringify(data);
     }
   },
 });
@@ -26,5 +24,7 @@ instance.interceptors.request.use((config) => {
 
 instance.interceptors.response.use(({ data }) => data, resError);
 
-export default (...args) => axios.all(_.map(args, req => instance(req)))
-  .then(axios.spread((...res) => res));
+export default (...args) => {
+  const fn = (_.isFunction(_.last(args))) ? args.pop() : _.noop();
+  axios.all(_.map(args, req => instance(req))).then(axios.spread((...res) => fn(...res)));
+};

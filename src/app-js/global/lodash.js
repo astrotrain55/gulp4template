@@ -11,6 +11,7 @@ import trim from 'lodash/trim';
 import size from 'lodash/size';
 import noop from 'lodash/noop';
 import has from 'lodash/has';
+import last from 'lodash/last';
 
 export default {
   map,
@@ -26,4 +27,5 @@ export default {
   size,
   noop,
   has,
+  last,
 };

@@ -1,4 +1,3 @@
-import { e } from 'libs';
 import $ from 'common/tools';
 
 class YouTube {
@@ -61,7 +60,7 @@ class YouTube {
     link.removeAttribute('target');
     video.classList.add('youtube--enabled');
 
-    e.once('click', video, () => {
+    ev.once('click', video, () => {
       this.setPlayer(video);
     });
   }
