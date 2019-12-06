@@ -1,5 +1,3 @@
-import { e } from 'libs';
-
 export default {
   el(selector, ctx = document) {
     return ctx.querySelector(selector);
@@ -17,8 +15,17 @@ export default {
     if (document.readyState !== 'loading') {
       fn();
     } else {
-      e.on('DOMContentLoaded', document, fn);
+      ev.on('DOMContentLoaded', document, fn);
     }
+  },
+
+  deleteQuote(value) {
+    if (_.isString(value)) return _.replace(value, /['"]/gi, '');
+    return value;
+  },
+
+  getNumberOnly(value) {
+    return parseInt(_.replace(value, /\D+/g, ''), 10);
   },
 
   getScrollbarWidth() {

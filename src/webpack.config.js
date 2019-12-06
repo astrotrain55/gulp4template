@@ -77,7 +77,8 @@ module.exports = {
     new ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-      _: [resolve(__dirname, 'app-js', 'libs', 'lodash.js'), 'default']
+      _: [resolve(__dirname, 'app-js', 'global', 'lodash.js'), 'default'],
+      ev: [resolve(__dirname, 'app-js', 'global', 'events.js'), 'default'],
     }),
     new CircularDependencyPlugin({
       // exclude detection of files based on a RegExp
