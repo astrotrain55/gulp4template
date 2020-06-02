@@ -1,5 +1,7 @@
 ## gulp4webpack
 
+> :warning: **Устаревший сборщик, новый по ссылке**: [webpack-engine](https://github.com/astrotrain55/webpack-engine)
+
 ### Стартовый шаблон
 
 #### HTML и CSS:
